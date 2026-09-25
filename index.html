@@ -254,31 +254,44 @@ section.spic-sec .sp-tech-txt{color:#fff}
 /* 제품 뒤에서 퍼져 나가는 원형 파동 */
 section.ing-sec{position:relative;overflow:hidden}
 section.ing-sec > *{position:relative;z-index:1}
-.ing-waves{position:absolute;left:0;top:var(--wave-y,40%);width:100%;height:0;
+.ing-waves{position:absolute;left:50%;top:50%;width:0;height:0;
   z-index:0;pointer-events:none;overflow:visible}
-.ing-waves span{position:absolute;left:var(--wave-x,50%);top:0;width:24px;aspect-ratio:1/1;
+/* 물방울이 떨어진 자리 — 낙하 지점의 짧은 임팩트 */
+.ing-waves::before{content:"";position:absolute;left:0;top:0;width:86px;height:86px;
   transform:translate(-50%,-50%);border-radius:50%;
-  border:2px solid rgba(0,85,160,.3);
-  filter:blur(5px);animation:ing-wave 12s linear infinite;opacity:0}
-.ing-waves span:nth-child(2){animation-delay:1.2s}
-.ing-waves span:nth-child(3){animation-delay:2.4s}
-.ing-waves span:nth-child(4){animation-delay:3.6s}
-.ing-waves span:nth-child(5){animation-delay:4.8s}
-.ing-waves span:nth-child(6){animation-delay:6s}
-.ing-waves span:nth-child(7){animation-delay:7.2s}
-.ing-waves span:nth-child(8){animation-delay:8.4s}
-.ing-waves span:nth-child(9){animation-delay:9.6s}
-.ing-waves span:nth-child(10){animation-delay:10.8s}
-/* 물방울이 떨어진 자리에서 퍼지듯 — 멀어질수록 두꺼워지고 옅어지며 사라짐 */
+  background:radial-gradient(circle, rgba(0,85,160,.1) 0%, rgba(0,85,160,0) 70%);
+  animation:ing-drop 1.2s ease-out infinite}
+@keyframes ing-drop{
+  0%{transform:translate(-50%,-50%) scale(.28);opacity:.9}
+  100%{transform:translate(-50%,-50%) scale(1.45);opacity:0}
+}
+.ing-waves span{position:absolute;left:0;top:0;width:18px;aspect-ratio:1/1;
+  transform:translate(-50%,-50%) scaleY(.96);border-radius:50%;
+  border:1.5px solid rgba(0,85,160,.2);
+  filter:blur(3px);animation:ing-wave 12s cubic-bezier(.24,.6,.42,1) infinite;opacity:0}
+/* 물결의 뒷자락 — 한 겹 더 얇은 링 */
+.ing-waves span::after{content:"";position:absolute;inset:11%;border-radius:50%;
+  border:1px solid rgba(0,85,160,.09)}
+/* 간격·크기를 살짝 흐트러뜨려 기계적인 반복을 줄임 */
+.ing-waves span:nth-child(2){animation-delay:1.15s}
+.ing-waves span:nth-child(3){animation-delay:2.42s;--k:.93}
+.ing-waves span:nth-child(4){animation-delay:3.54s}
+.ing-waves span:nth-child(5){animation-delay:4.82s;--k:1.05}
+.ing-waves span:nth-child(6){animation-delay:5.94s}
+.ing-waves span:nth-child(7){animation-delay:7.2s;--k:.95}
+.ing-waves span:nth-child(8){animation-delay:8.36s}
+.ing-waves span:nth-child(9){animation-delay:9.62s;--k:1.04}
+.ing-waves span:nth-child(10){animation-delay:10.78s}
+/* 퍼질수록 두꺼워지고 옅어지며, 끝에서 부드럽게 감속 */
 @keyframes ing-wave{
-  0%{width:24px;border-width:2px;filter:blur(5px);opacity:0}
-  5%{opacity:.85}
-  45%{border-width:16px;filter:blur(14px);opacity:.6}
-  75%{border-width:32px;filter:blur(24px);opacity:.34}
-  100%{width:var(--wave-size,1400px);border-width:52px;filter:blur(36px);opacity:0}
+  0%{width:18px;border-width:1.5px;filter:blur(3px);opacity:0}
+  6%{opacity:.9}
+  50%{border-width:9px;filter:blur(9px);opacity:.62}
+  80%{border-width:16px;filter:blur(14px);opacity:.32}
+  100%{width:calc(var(--wave-size,480px) * var(--k,1));border-width:24px;filter:blur(20px);opacity:0}
 }
 @media (prefers-reduced-motion:reduce){
-  .ing-orbit,.ing-node-in,.ing-waves span{animation:none}
+  .ing-orbit,.ing-node-in,.ing-waves span,.ing-waves::before{animation:none}
   .ing-waves{display:none}
 }
 
@@ -343,6 +356,27 @@ section.qna{background:#F2F3F5}
 .hero-certs li:nth-child(4){transition-delay:.76s}
 .hero-sub .sub-eyebrow{transition-delay:.06s}
 .hero-sub .sub-title{transition-delay:.2s}
+/* 한 앰플, 5가지 케어 */
+.five-sec{background:#EDEFF1}
+.fb-stage{position:relative;aspect-ratio:1080/2092;
+  background:url('임시 이미지/five-face.jpg') center top / cover no-repeat}
+.fb-stage::before{content:"";position:absolute;left:0;top:0;right:0;height:34%;
+  background:linear-gradient(to bottom,rgba(237,239,241,.96) 34%,rgba(237,239,241,0) 100%)}
+.fb-head{position:absolute;left:0;right:0;top:4.2%;text-align:center;padding:0 20px;z-index:2}
+.fb-title{font-size:30px;font-weight:800;color:#111;line-height:1.3;letter-spacing:-.03em}
+.fb-title strong{font-weight:800}
+.fb-sub{margin-top:10px;font-size:13px;font-weight:600;letter-spacing:.1em;color:#4A5563}
+.fb-lines{position:absolute;inset:0;width:100%;height:100%;z-index:1}
+.fb-dot{position:absolute;width:7px;height:7px;margin:-3.5px 0 0 -3.5px;border-radius:50%;
+  background:#fff;box-shadow:0 0 8px rgba(0,0,0,.28);z-index:3}
+.fb-item{position:absolute;left:0;transform:translateY(-50%);padding-right:12px;z-index:3;
+  display:flex;align-items:center;justify-content:flex-end;gap:10px;text-align:right}
+.fb-item.fb-stack{flex-direction:column;align-items:flex-end;gap:2px}
+.fb-desc{font-size:13px;font-weight:600;color:#fff;line-height:1.35;letter-spacing:-.02em;
+  text-shadow:0 1px 6px rgba(0,0,0,.45)}
+.fb-word{font-size:22px;font-weight:800;color:#fff;letter-spacing:-.02em;
+  text-shadow:0 1px 8px rgba(0,0,0,.5)}
+.fb-item.fb-stack .fb-word{order:-1}
 /* 프로그램 카드 — 세로 1열 */
 .pg-card{margin-bottom:12px;text-align:left}
 .pg-best{border:2px solid var(--brand)}
@@ -840,12 +874,36 @@ section.evi-sec{background:#F2F3F5}
   <p class="note" style="margin-top:12px">※ 함량(25ppm)·치수(nm·μm)는 완제품 규격서·원료 분석자료로 확인된 값으로 표기합니다.</p>
 </section>
 
+<!-- [6-0b] 한 앰플, 5가지 케어 -->
+<div class="five-sec">
+  <div class="fb-stage">
+    <div class="fb-head">
+      <h2 class="fb-title">한 앰플로,<br><strong>5가지 케어가 동시에!</strong></h2>
+      <p class="fb-sub">ONE AMPOULE · FIVE BENEFITS</p>
+    </div>
+    <svg class="fb-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+      <polyline points="50.0,33.0 38.0,50.0 37.0,62.0 44.0,72.0 58.0,82.0" fill="none" stroke="rgba(255,255,255,.85)" stroke-width="1"
+                vector-effect="non-scaling-stroke" stroke-linejoin="round"/>
+    </svg>
+    <span class="fb-dot" style="left:50.0%;top:33.0%"></span>
+    <span class="fb-dot" style="left:38.0%;top:50.0%"></span>
+    <span class="fb-dot" style="left:37.0%;top:62.0%"></span>
+    <span class="fb-dot" style="left:44.0%;top:72.0%"></span>
+    <span class="fb-dot" style="left:58.0%;top:82.0%"></span>
+    <div class="fb-item" style="top:33.0%;width:46.5%"><p class="fb-desc">이마주름 감소<br>49%</p><span class="fb-word">주름</span></div>
+    <div class="fb-item fb-stack" style="top:50.0%;width:34.5%"><p class="fb-desc">독보적인 제조기술<br>다이아 파우더<br>코팅 스피큘</p><span class="fb-word">광채</span></div>
+    <div class="fb-item" style="top:62.0%;width:33.5%"><p class="fb-desc">프랑스 100%<br>직수입 콜라겐</p><span class="fb-word">볼륨</span></div>
+    <div class="fb-item" style="top:72.0%;width:40.5%"><p class="fb-desc">식물엑소좀의<br>콜라겐 합성</p><span class="fb-word">탄력</span></div>
+    <div class="fb-item" style="top:82.0%;width:54.5%"><p class="fb-desc">49가지<br>활성성분 집중함유</p><span class="fb-word">영양</span></div>
+  </div>
+</div>
+
 <!-- [6-1b] 성분 -->
 <section class="ing-sec">
-  <div class="ing-waves" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
   <h2 class="section-title">잘 들어가는 게 중요한 만큼,<br><strong>무엇이 들어가는지도 중요합니다</strong></h2>
   <p class="section-subtitle">49가지 성분이 한 번에, 다이아몬드 스피큘이 전하는 풀 영양 케어</p>
   <div class="ing-map">
+    <div class="ing-waves" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
     <div class="ing-orbit">
       <svg class="ing-lines" viewBox="0 0 100 100" aria-hidden="true">
         <line x1="50.00" y1="50.00" x2="50.00" y2="26.50"/>
@@ -1367,13 +1425,14 @@ section.evi-sec{background:#F2F3F5}
   var TXT_SEL = 'section h1, section h2, section h3, section h4, section p, section li,'
               + ' .point-wrap, .test-tag, .cause-no, .copy-band p, .wr-title, .cl-title, .cl-sub,'
               + ' .cl-name, .cl-delta, .cl-x, .fd-title, .fd-body, .fd-sign, .cc-lead, .cc-next, .sp-tech-txt,'
-              + ' .sub-eyebrow, .sub-title';
+              + ' .sub-eyebrow, .sub-title, .fb-title, .fb-sub';
 
   function tag(sel, cls) {
     Array.prototype.forEach.call(document.querySelectorAll(sel), function (el) {
       if (inSkip(el)) return;
       if (el.closest('.sp-item') || el.closest('.ing-node')) return;                 // 자체 애니메이션 사용
       if (el.closest('.doc-slider')) return;                                        // 슬라이더는 자체 제어
+      if (el.closest('.fb-stage') && !el.closest('.fb-head')) return;               // 얼굴 콜아웃은 고정
       if (el.classList.contains('rv-up') || el.classList.contains('rv-fade')) return;
       if (el.parentElement && el.parentElement.closest('.rv-up, .rv-fade')) return;  // 상위가 이미 움직임
       if (cls === 'rv-up' && el.querySelector(IMG_SEL)) return;                      // 이미지를 품은 묶음 제외
@@ -1639,15 +1698,11 @@ section.evi-sec{background:#F2F3F5}
   var waves = sec.querySelector('.ing-waves');
   if (!map || !waves) return;
 
-  var core = sec.querySelector('.ing-core');
   function fit() {
-    /* 제품 이미지(.ing-core)의 정중앙 — translate(-50%,-50%)라 offset 좌표가 곧 중심 */
-    var x = map.offsetLeft + (core ? core.offsetLeft : map.offsetWidth / 2);
-    var y = map.offsetTop + (core ? core.offsetTop : map.offsetHeight / 2);
-    var need = Math.max(sec.offsetHeight - y, y) + 80;      // 섹션 bottom까지의 거리
-    sec.style.setProperty('--wave-x', x + 'px');
-    sec.style.setProperty('--wave-y', y + 'px');
-    sec.style.setProperty('--wave-size', Math.round(need * 2) + 'px');  // 최종 지름
+    /* 제품 이미지를 중심으로, 성분 다이어그램 영역 안에서만 퍼지도록 */
+    var d = map.offsetWidth * 1.18;
+    if (!d) return;
+    sec.style.setProperty('--wave-size', Math.round(d) + 'px');  // 최종 지름
   }
   fit();
   window.addEventListener('load', fit);
