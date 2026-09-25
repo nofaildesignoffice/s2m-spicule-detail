@@ -358,11 +358,13 @@ section.qna{background:#F2F3F5}
 .hero-sub .sub-eyebrow{transition-delay:.06s}
 .hero-sub .sub-title{transition-delay:.2s}
 /* 한 앰플, 5가지 케어 */
-.five-sec{background:#EDEFF1;padding-top:54px}
+.five-sec{background:#EDEFF1;padding-top:96px}
 .fb-stage{position:relative;aspect-ratio:1080/2092;
-  background:url('임시 이미지/five-face.jpg') center top / cover no-repeat}
-.fb-stage::before{content:"";position:absolute;left:0;top:0;right:0;height:34%;
-  background:linear-gradient(to bottom,rgba(237,239,241,.96) 34%,rgba(237,239,241,0) 100%)}
+  background:url('임시 이미지/five-face.jpg') center top / cover no-repeat;
+  -webkit-mask-image:linear-gradient(to bottom,transparent 0%,rgba(0,0,0,.35) 7%,#000 19%);
+  mask-image:linear-gradient(to bottom,transparent 0%,rgba(0,0,0,.35) 7%,#000 19%)}
+.fb-stage::before{content:"";position:absolute;left:0;top:0;right:0;height:26%;
+  background:linear-gradient(to bottom,rgba(237,239,241,.9) 0%,rgba(237,239,241,.55) 35%,rgba(237,239,241,0) 100%)}
 .fb-head{text-align:center;padding:0 20px 20px}
 .fb-lead{font-size:17px;font-weight:400;line-height:1.7;letter-spacing:-.02em;color:#1A1A1A}
 .fb-title{margin-top:16px;font-size:30px;font-weight:800;color:#111;line-height:1.3;letter-spacing:-.03em}
