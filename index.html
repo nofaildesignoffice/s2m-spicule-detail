@@ -202,7 +202,15 @@ section.conclusion{background:var(--navy);padding:52px 20px 56px;color:#fff}
 .cc-img{aspect-ratio:848/542;margin-top:28px;background:rgba(255,255,255,.14) center / cover no-repeat}
 .cc-next{margin-top:30px;font-size:22px;font-weight:400;color:#fff;text-align:center;line-height:1.5;letter-spacing:-.03em}
 .cc-next strong{font-weight:800}
-section.spic-sec{background:url('임시 이미지/spic-bg.png') center top / cover no-repeat;padding:228px 20px 52px}
+section.spic-sec{position:relative;overflow:hidden;background:#000B26;padding:228px 20px 52px}
+/* 배경 영상(top 정렬·가로 100%) + 하단 #000B26 그라디언트 오버레이 */
+.sp-bg{position:absolute;left:0;top:0;width:100%;height:100%;z-index:0;pointer-events:none;overflow:hidden}
+.sp-bg video{position:absolute;left:0;top:0;width:100%;height:auto;display:block;
+  -webkit-mask-image:linear-gradient(to bottom,#000 80%,transparent 100%);
+  mask-image:linear-gradient(to bottom,#000 80%,transparent 100%)}
+.sp-bg::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(to bottom,rgba(0,11,38,0) 50%,rgba(0,11,38,1) 100%)}
+section.spic-sec > *:not(.sp-bg){position:relative;z-index:1}
 section.spic-sec .section-title{color:#fff;text-shadow:0 2px 14px rgba(0,20,40,.5)}
 section.spic-sec .section-title strong{color:#fff}
 section.spic-sec > p{color:rgba(255,255,255,.92)!important;text-shadow:0 1px 10px rgba(0,20,40,.45)}
@@ -321,7 +329,7 @@ section.htu-sec{background:#fff}
 .htu-step{display:grid;grid-template-columns:132px 1fr;gap:16px;align-items:center;padding:18px 0}
 .htu-step + .htu-step{border-top:1px solid var(--line-soft)}
 .htu-img{aspect-ratio:1/1;border-radius:12px;background:#DEDEDE center / cover no-repeat;overflow:hidden}
-.htu-badge{display:inline-block;background:#fff;color:#111;border:1.5px solid #111;border-radius:999px;
+.htu-badge{display:inline-block;background:#fff;color:#111;border:1px solid #111;border-radius:999px;
   padding:5px 17px;font-size:12.5px;font-weight:700;letter-spacing:.06em}
 .htu-title{margin-top:10px;font-size:17px;font-weight:800;color:#111;letter-spacing:-.02em}
 .htu-body{margin-top:6px;font-size:13px;color:#666;line-height:1.6;letter-spacing:-.02em;word-break:keep-all}
@@ -775,6 +783,9 @@ section.stories .rv{margin-bottom:34px}
 
 <!-- [5b2] 기술 다이어그램 -->
 <section class="spic-sec">
+  <div class="sp-bg" aria-hidden="true">
+    <video src="임시 이미지/spic-bg.mp4" autoplay muted loop playsinline preload="auto"></video>
+  </div>
   <h2 class="section-title">3중 코팅 구조의<br><strong>다이아몬드 스피큘</strong></h2>
   <p style="font-size:14px;color:var(--text-dark);text-align:center;line-height:1.85;margin-bottom:22px">다이아몬드 스피큘 5,000샷은 단순 스피큘이 아닌 <strong style="color:var(--brand-deep)">3중 코팅 구조</strong>입니다. 마지막 층, <strong style="color:var(--brand-deep)">다이아몬드 파우더 코팅</strong>이 이 제품 이름의 이유예요.</p>
   <div class="sp-wrap">
