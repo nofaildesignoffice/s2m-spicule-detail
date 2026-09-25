@@ -211,7 +211,7 @@ section.spic-sec{position:relative;overflow:hidden;background:#000B26;padding:22
 .sp-bg::after{content:"";position:absolute;inset:0;
   background:linear-gradient(to bottom,rgba(0,11,38,0) 50%,rgba(0,11,38,1) 100%)}
 section.spic-sec > *:not(.sp-bg){position:relative;z-index:1}
-section.spic-sec .section-title{color:#fff;text-shadow:0 2px 14px rgba(0,20,40,.5)}
+section.spic-sec .section-title{font-size:30px;line-height:1.35;color:#fff;text-shadow:0 2px 14px rgba(0,20,40,.5)}
 section.spic-sec .section-title strong{color:#fff}
 section.spic-sec > p{color:rgba(255,255,255,.92)!important;text-shadow:0 1px 10px rgba(0,20,40,.45)}
 section.spic-sec > p strong{color:#fff!important}
@@ -362,8 +362,9 @@ section.qna{background:#F2F3F5}
   background:url('임시 이미지/five-face.jpg') center top / cover no-repeat}
 .fb-stage::before{content:"";position:absolute;left:0;top:0;right:0;height:34%;
   background:linear-gradient(to bottom,rgba(237,239,241,.96) 34%,rgba(237,239,241,0) 100%)}
-.fb-head{position:absolute;left:0;right:0;top:4.2%;text-align:center;padding:0 20px;z-index:2}
-.fb-title{font-size:30px;font-weight:800;color:#111;line-height:1.3;letter-spacing:-.03em}
+.fb-head{text-align:center;padding:0 20px 20px}
+.fb-lead{font-size:17px;font-weight:400;line-height:1.7;letter-spacing:-.02em;color:#1A1A1A}
+.fb-title{margin-top:16px;font-size:30px;font-weight:800;color:#111;line-height:1.3;letter-spacing:-.03em}
 .fb-title strong{font-weight:800}
 .fb-sub{margin-top:10px;font-size:13px;font-weight:600;letter-spacing:.1em;color:#4A5563}
 .fb-lines{position:absolute;inset:0;width:100%;height:100%;z-index:1}
@@ -880,11 +881,12 @@ section.evi-sec{background:#F2F3F5}
 
 <!-- [6-0b] 한 앰플, 5가지 케어 -->
 <div class="five-sec">
+  <div class="fb-head">
+    <p class="fb-lead">잘 들어가는 게 중요한 만큼,<br>무엇이 들어가는지도 중요합니다</p>
+    <h2 class="fb-title">하나의 앰플, <strong>5가지 케어</strong></h2>
+    <p class="fb-sub">ONE AMPOULE · FIVE BENEFITS</p>
+  </div>
   <div class="fb-stage">
-    <div class="fb-head">
-      <h2 class="fb-title">한 앰플로,<br><strong>5가지 케어가 동시에!</strong></h2>
-      <p class="fb-sub">ONE AMPOULE · FIVE BENEFITS</p>
-    </div>
     <svg class="fb-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
       <polyline points="50.0,33.0 34.5,50.0 37.0,62.0 44.0,72.0 58.0,82.0" fill="none" stroke="rgba(255,255,255,.85)" stroke-width="1"
                 vector-effect="non-scaling-stroke" stroke-linejoin="round"/>
@@ -904,8 +906,8 @@ section.evi-sec{background:#F2F3F5}
 
 <!-- [6-1b] 성분 -->
 <section class="ing-sec">
-  <h2 class="section-title">잘 들어가는 게 중요한 만큼,<br><strong>무엇이 들어가는지도 중요합니다</strong></h2>
-  <p class="section-subtitle">49가지 성분이 한 번에, 다이아몬드 스피큘이 전하는 풀 영양 케어</p>
+  <h2 class="section-title"><strong>49가지 성분이 한 번에</strong></h2>
+  <p class="section-subtitle">다이아몬드 스피큘이 전하는 풀 영양 케어</p>
   <div class="ing-map">
     <div class="ing-waves" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
     <div class="ing-orbit">
@@ -1425,7 +1427,7 @@ section.evi-sec{background:#F2F3F5}
   var TXT_SEL = 'section h1, section h2, section h3, section h4, section p, section li,'
               + ' .point-wrap, .test-tag, .cause-no, .copy-band p, .wr-title, .cl-title, .cl-sub,'
               + ' .cl-name, .cl-delta, .cl-x, .fd-title, .fd-body, .fd-sign, .cc-lead, .cc-next, .sp-tech-txt,'
-              + ' .sub-eyebrow, .sub-title, .fb-title, .fb-sub';
+              + ' .sub-eyebrow, .sub-title, .fb-lead, .fb-title, .fb-sub';
 
   function tag(sel, cls) {
     Array.prototype.forEach.call(document.querySelectorAll(sel), function (el) {
