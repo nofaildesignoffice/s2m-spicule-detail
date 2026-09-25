@@ -201,16 +201,20 @@ section.conclusion{background:var(--navy);padding:52px 20px 56px;color:#fff}
 .cc-img{height:250px;margin-top:28px;border-radius:0;background:rgba(255,255,255,.14);border:none;color:rgba(255,255,255,.55);font-size:12px}
 .cc-next{margin-top:30px;font-size:22px;font-weight:400;color:#fff;text-align:center;line-height:1.5;letter-spacing:-.03em}
 .cc-next strong{font-weight:800}
-section.spic-sec{background:#fff}
+section.spic-sec{background:#F2F3F5;padding:0 20px 52px}
+.sp-top{height:320px;margin:0 -20px 14px;background:url('임시 이미지/image 14 (4).png') center top / cover no-repeat;
+  -webkit-mask-image:linear-gradient(to bottom,#000 58%,transparent 100%);
+  mask-image:linear-gradient(to bottom,#000 58%,transparent 100%)}
 .cmp-title{font-size:30px;line-height:1.35}
 /* 핵심 성분 원형 다이어그램 */
 .ing-map{position:relative;aspect-ratio:1/1;margin:20px 0 10px}
-.ing-lines{position:absolute;inset:0;width:100%;height:100%}
+.ing-lines{position:absolute;inset:0;width:100%;height:100%;z-index:1}
 .ing-lines line{stroke:#BCC8D8;stroke-width:.45;stroke-linecap:round;stroke-dasharray:0 2.2}
-.ing-core{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:38%;aspect-ratio:1/1;
-  border-radius:50%;background:#fff url('임시 이미지/product.png') center / 88% auto no-repeat;
-  box-shadow:0 8px 24px rgba(24,60,110,.10)}
-.ing-node{position:absolute;transform:translate(-50%,-50%);width:17.5%;aspect-ratio:1/1;text-align:center}
+.ing-core{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:44%;aspect-ratio:1/1;z-index:2;
+  border-radius:506px;
+  background:url('임시 이미지/product.png') center / 68% auto no-repeat,
+    radial-gradient(50% 50% at 50% 50%, #FFF 0%, rgba(255,255,255,0.00) 100%)}
+.ing-node{position:absolute;transform:translate(-50%,-50%);width:17.5%;aspect-ratio:1/1;text-align:center;z-index:2}
 .ing-dot{width:100%;height:100%;border-radius:50%;background:#EDF2F8;border:1px solid var(--line);
   color:var(--ph-text);font-size:9px}
 .ing-node p{position:absolute;left:50%;top:calc(100% + 8px);transform:translateX(-50%);width:165%;
@@ -240,6 +244,32 @@ section.sponge-sec .section-title{color:#fff;text-shadow:0 2px 14px rgba(0,20,35
 .spx-ic svg{width:16px;height:16px}
 .spx-cell h3{font-size:13.5px;font-weight:800;color:#fff;letter-spacing:-.03em;word-break:keep-all}
 .spx-cell p{margin-top:4px;font-size:11px;font-weight:600;color:rgba(255,255,255,.85);word-break:keep-all;line-height:1.35}
+/* 스피큘 비교표 */
+.cmp-wrap{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:0 12px;margin-top:70px}
+.cmp-head{position:absolute;top:-56px;width:112px;height:112px;border-radius:50%;background:#fff;overflow:hidden;
+  display:block;z-index:2}
+.cmp-head.base{left:25%;transform:translateX(-50%);border:1.5px solid #CFD4D9}
+.cmp-head.dia{left:75%;transform:translateX(-50%);border:1.5px solid var(--brand)}
+.cmp-circle{display:flex;align-items:center;justify-content:center;width:100%;height:100%;border-radius:50%;
+  background:#F2F3F5;border:none;color:#9AA1A8;font-size:10px;text-align:center;padding:8px}
+.cmp-head.dia .cmp-circle{background:#EAF1F8;color:var(--brand)}
+.cmp-glow{position:absolute;left:calc(50% + 6px);right:0;top:0;bottom:0;border-radius:20px;z-index:0;
+  box-shadow:0 14px 34px rgba(140,193,233,.75), 0 0 0 6px rgba(140,193,233,.18)}
+.cmp-cell{position:relative;background:#fff;padding:16px 10px;text-align:center;font-size:13.5px;font-weight:700;
+  line-height:1.45;letter-spacing:-.02em;word-break:keep-all}
+.cmp-cell.base{border-left:1.5px solid #CFD4D9;border-right:1.5px solid #CFD4D9;color:#8C9196}
+.cmp-cell.dia{border-left:1.5px solid var(--brand);border-right:1.5px solid var(--brand);color:var(--brand)}
+.cmp-cell.first{padding-top:72px;border-radius:20px 20px 0 0}
+.cmp-cell.base.first{border-top:1.5px solid #CFD4D9}
+.cmp-cell.dia.first{border-top:1.5px solid var(--brand)}
+.cmp-cell.last{padding-bottom:24px;border-radius:0 0 20px 20px}
+.cmp-cell.base.last{border-bottom:1.5px solid #CFD4D9}
+.cmp-cell.dia.last{border-bottom:1.5px solid var(--brand)}
+.cmp-cell.title{font-size:16px;font-weight:800;padding-bottom:18px}
+.cmp-cell.base.title{color:#6E7378}
+.cmp-cell.dia.title{color:var(--brand-deep)}
+.cmp-cell:not(.first)::before{content:"";position:absolute;left:14px;right:14px;top:0;border-top:1px dotted #D9DDE2}
+.cmp-cell.dia:not(.first)::before{border-top-color:rgba(0,85,160,.3)}
 /* 스피큘 구조 도해 — 가운데 스피큘, 좌우 교차 배치 */
 .sp-wrap{position:relative;margin-top:26px;padding:4px 0}
 .sp-figure{position:absolute;left:50%;transform:translateX(-50%);top:0;bottom:0;width:56px;
@@ -570,43 +600,29 @@ section.sponge-sec .section-title{color:#fff;text-shadow:0 2px 14px rgba(0,20,35
 <section>
   <h2 class="section-title cmp-title">왜 다른 스피큘이 아닌<br><strong>다이아몬드 스피큘이어야 하나?</strong></h2>
   <p class="section-subtitle">같은 스피큘이 아닙니다. 구조부터 다릅니다</p>
-  <table style="width:100%;border-collapse:collapse;font-size:12.5px;line-height:1.5">
-    <tr>
-      <th style="text-align:left;padding:10px 6px;border-bottom:1.5px solid var(--line)"></th>
-      <th style="padding:10px 6px;border-bottom:1.5px solid var(--line);color:var(--text-gray);width:35%">일반 스피큘</th>
-      <th style="padding:10px 6px;background:var(--brand);color:#fff;width:39%;border-radius:10px 10px 0 0">다이아몬드 스피큘</th>
-    </tr>
-    <tr>
-      <td style="padding:11px 6px;font-weight:700;border-bottom:1px solid var(--line-soft)">코팅 구조</td>
-      <td style="padding:11px 6px;text-align:center;color:var(--text-gray);border-bottom:1px solid var(--line-soft)">단순 스피큘</td>
-      <td style="padding:11px 6px;text-align:center;font-weight:600;border-bottom:1px solid var(--line-soft);background:var(--bg-soft)">3중 코팅(지질막·활성성분·다이아몬드)</td>
-    </tr>
-    <tr>
-      <td style="padding:11px 6px;font-weight:700;border-bottom:1px solid var(--line-soft)">다이아몬드 파우더</td>
-      <td style="padding:11px 6px;text-align:center;color:var(--text-gray);border-bottom:1px solid var(--line-soft)">없음</td>
-      <td style="padding:11px 6px;text-align:center;font-weight:600;border-bottom:1px solid var(--line-soft);background:var(--bg-soft)">함유(25ppm)</td>
-    </tr>
-    <tr>
-      <td style="padding:11px 6px;font-weight:700;border-bottom:1px solid var(--line-soft)">활성 성분 담는 법</td>
-      <td style="padding:11px 6px;text-align:center;color:var(--text-gray);border-bottom:1px solid var(--line-soft)">표면 위주</td>
-      <td style="padding:11px 6px;text-align:center;font-weight:600;border-bottom:1px solid var(--line-soft);background:var(--bg-soft)">내부 채널에 초고압 인퓨전</td>
-    </tr>
-    <tr>
-      <td style="padding:11px 6px;font-weight:700;border-bottom:1px solid var(--line-soft)">사용 직후 광채</td>
-      <td style="padding:11px 6px;text-align:center;color:var(--text-gray);border-bottom:1px solid var(--line-soft)">-</td>
-      <td style="padding:11px 6px;text-align:center;font-weight:600;border-bottom:1px solid var(--line-soft);background:var(--bg-soft)">다이아몬드 입자의 빛 산란</td>
-    </tr>
-    <tr>
-      <td style="padding:11px 6px;font-weight:700">각질 정돈·마무리</td>
-      <td style="padding:11px 6px;text-align:center;color:var(--text-gray)">각질 자극 중심</td>
-      <td style="padding:11px 6px;text-align:center;font-weight:600;background:var(--bg-soft)">각질 정돈 + 판테놀·병풀 진정·보습</td>
-    </tr>
-  </table>
+  <div class="cmp-wrap">
+    <span class="cmp-glow" aria-hidden="true"></span>
+    <span class="cmp-head base"><span class="ph cmp-circle">[일반 스피큘 이미지]</span></span>
+    <span class="cmp-head dia"><span class="ph cmp-circle">[다이아몬드 스피큘 이미지]</span></span>
+    <div class="cmp-cell base first title">일반 스피큘</div>
+    <div class="cmp-cell dia first title">다이아몬드 스피큘</div>
+    <div class="cmp-cell base">단순 스피큘</div>
+    <div class="cmp-cell dia">3중 코팅<br>(지질막·활성성분·다이아몬드)</div>
+    <div class="cmp-cell base">다이아몬드 파우더 없음</div>
+    <div class="cmp-cell dia">다이아몬드 파우더<br>함유 (25ppm)</div>
+    <div class="cmp-cell base">표면 위주로 성분 부착</div>
+    <div class="cmp-cell dia">내부 채널에<br>초고압 인퓨전</div>
+    <div class="cmp-cell base">사용 직후 광채 –</div>
+    <div class="cmp-cell dia">다이아몬드 입자의<br>빛 산란</div>
+    <div class="cmp-cell base last">각질 자극 중심</div>
+    <div class="cmp-cell dia last">각질 정돈 +<br>판테놀·병풀 진정·보습</div>
+  </div>
   <p class="note" style="margin-top:8px">※ 원료 구조·조성 비교이며 특정 브랜드를 지칭하지 않습니다. 함량(25ppm)·치수는 완제품 규격서로 확인된 값으로 표기합니다.</p>
 </section>
 
 <!-- [5b2] 기술 다이어그램 -->
 <section class="spic-sec">
+  <div class="sp-top"></div>
   <h2 class="section-title">같은 스피큘이라도,<br>다이아몬드를 입었을 때 <strong>결과가 달라집니다</strong></h2>
   <p style="font-size:14px;color:var(--text-dark);text-align:center;line-height:1.85;margin-bottom:22px">다이아몬드 스피큘 5,000샷은 단순 스피큘이 아닌 <strong style="color:var(--brand-deep)">3중 코팅 구조</strong>입니다. 마지막 층, <strong style="color:var(--brand-deep)">다이아몬드 파우더 코팅</strong>이 이 제품 이름의 이유예요.</p>
   <div class="sp-wrap">
@@ -666,11 +682,11 @@ section.sponge-sec .section-title{color:#fff;text-shadow:0 2px 14px rgba(0,20,35
   <p class="section-subtitle">49가지 성분이 한 번에, 다이아몬드 스피큘이 전하는 풀 영양 케어</p>
   <div class="ing-map">
     <svg class="ing-lines" viewBox="0 0 100 100" aria-hidden="true">
-      <line x1="50.00" y1="29.80" x2="50.00" y2="28.40"/>
-      <line x1="69.21" y1="43.76" x2="70.54" y2="43.33"/>
-      <line x1="61.87" y1="66.34" x2="62.70" y2="67.47"/>
-      <line x1="38.13" y1="66.34" x2="37.30" y2="67.47"/>
-      <line x1="30.79" y1="43.76" x2="29.46" y2="43.33"/>
+      <line x1="50.00" y1="50.00" x2="50.00" y2="28.40"/>
+      <line x1="50.00" y1="50.00" x2="70.54" y2="43.33"/>
+      <line x1="50.00" y1="50.00" x2="62.70" y2="67.47"/>
+      <line x1="50.00" y1="50.00" x2="37.30" y2="67.47"/>
+      <line x1="50.00" y1="50.00" x2="29.46" y2="43.33"/>
     </svg>
     <div class="ing-core"></div>
     <div class="ing-node" style="left:50.0%;top:18.5%;--n:0">
