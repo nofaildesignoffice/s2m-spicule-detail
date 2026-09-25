@@ -20,7 +20,7 @@
   --line:#DCE4EE; --line-soft:#EAEFF5;
   --bg:#FFFFFF; --bg-card:#fff; --bg-soft:#EAF1F8; --bg-tint:#FFF8E7; --bg-dark:#12284D;
   --ph-bg:#DCEAF4; --ph-text:#5B7A93; --bar-before:#C9CFD6;
-  --radius:16px; --radius-sm:12px; --pad-section:52px 20px;
+  --radius:16px; --radius-sm:12px; --pad-section:76px 20px 52px;
   --font-sans:'Pretendard Variable','Pretendard','Apple SD Gothic Neo',-apple-system,BlinkMacSystemFont,system-ui,'Segoe UI',Roboto,'Helvetica Neue','Noto Sans KR',sans-serif;
 }
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;font-family:var(--font-sans)}
@@ -59,8 +59,7 @@ strong{font-weight:700}
 ul{list-style:none}
 .g2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 /* 성분 원형 교차 */
-.ing-row{display:flex;gap:16px;align-items:center;padding:18px 0;border-bottom:1px solid var(--line-soft)}
-.ing-row.rev{flex-direction:row-reverse;text-align:right}
+.ing-row{display:flex;gap:16px;align-items:center;padding:18px 0;border:none}
 .ing-img{width:96px;height:96px;flex:0 0 96px;border-radius:50%;font-size:10px}
 .ing-txt h3{font-size:15.5px;margin-bottom:5px}
 .ing-txt p{font-size:13px;color:var(--text-gray);line-height:1.65}
@@ -117,16 +116,15 @@ ul{list-style:none}
 section.cause-sec{background:#fff}
 .causes{margin:4px 0 30px}
 .cause-card{margin-bottom:52px;text-align:center}
-.cause-no{display:inline-flex;align-items:center;justify-content:center;width:52px;height:52px;border-radius:50%;
-  border:1.5px solid #111;font-size:21px;font-weight:700;color:#111}
+.cause-no{display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:50%;
+  border:1.3px solid #111;font-size:17px;font-weight:700;color:#111}
 .cause-title{margin-top:20px;font-size:23px;font-weight:800;color:#111;line-height:1.45;letter-spacing:-.03em}
-.cause-img{position:relative;height:250px;margin-top:22px;border-radius:0;background:#DEDEDE;border:none;color:#9A9A9A;font-size:12px;align-items:flex-start;padding-top:28px}
-.cause-stat{position:absolute;right:14px;bottom:14px;font-size:17px;font-weight:800;color:var(--brand);letter-spacing:-.02em}
+.cause-img{position:relative;aspect-ratio:426/240;margin-top:22px;background:#DEDEDE center / cover no-repeat}
 .cause-body{margin-top:18px;text-align:left;font-size:15.5px;color:#222;line-height:1.7;letter-spacing:-.02em}
 /* 히어로 하단 이어지는 제품 섹션 */
 .sub-inner{position:relative;min-height:820px;text-align:center;padding:88px 20px 38px;color:#111;
   background:#EDEFF1 url('임시 이미지/hero-sub-bg.png') center top / cover no-repeat}
-.sub-eyebrow{font-size:17px;font-weight:600;line-height:1.7;letter-spacing:-.02em;color:#1A1A1A}
+.sub-eyebrow{font-size:17px;font-weight:400;line-height:1.7;letter-spacing:-.02em;color:#1A1A1A}
 .sub-eyebrow strong{font-weight:800}
 .sub-title{margin-top:16px;font-size:38px;font-weight:800;line-height:1.22;letter-spacing:-.02em;color:#111}
 /* CLINICAL PROOF */
@@ -135,10 +133,12 @@ section.clinical{background:#F2F3F5;padding:0 20px 46px}
   -webkit-mask-image:linear-gradient(to bottom,#000 58%,transparent 100%);mask-image:linear-gradient(to bottom,#000 58%,transparent 100%)}
 .cl-title{text-align:center;font-size:30px;font-weight:800;color:#111;letter-spacing:-.03em}
 .cl-sub{text-align:center;margin-top:10px;font-size:15px;color:#666}
-.cl-test{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px;margin-top:40px}
+.cl-test{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:21px;margin-top:72px}
 .cl-test>*{min-width:0}
-.cl-photos{display:flex;flex-direction:column;gap:10px}
-.cl-photos .ph{aspect-ratio:1/.95;border-radius:0;background:#DEDEDE;border:none;color:#9A9A9A;font-size:11px}
+.cl-photos{display:flex;flex-direction:column;gap:10px;margin-bottom:28px}
+.cl-photo{position:relative;aspect-ratio:1/1;background:#DEDEDE center / cover no-repeat}
+.cl-tag{position:absolute;left:8px;bottom:8px;padding:4px 9px;border-radius:4px;
+  background:rgba(17,17,17,.62);color:#fff;font-size:11px;font-weight:700;letter-spacing:-.02em}
 .cl-name{font-size:22px;font-weight:800;color:#111;letter-spacing:-.03em}
 .cl-delta{margin-top:10px;font-size:17px;font-weight:700;color:#111}
 .cl-delta b{font-size:34px;font-weight:800;letter-spacing:-.03em}
@@ -148,7 +148,13 @@ section.clinical{background:#F2F3F5;padding:0 20px 46px}
 .cl-chart .cl-bar{position:absolute;bottom:0;width:40%;border-radius:8px 8px 0 0}
 .cl-chart .cl-bar.before{left:0;background:#C9CED8}
 .cl-chart .cl-bar.after{right:0;background:#33559B}
-.cl-x{display:flex;justify-content:space-between;margin-top:10px;font-size:12px;color:#666}
+.cl-chart .cl-bar::after{content:"";position:absolute;top:-5px;left:50%;transform:translateX(-50%);
+  width:10px;height:10px;border-radius:50%;background:#fff;border:2.5px solid #8A9099}
+.cl-chart .cl-bar.after::after{border-color:#33559B}
+.cl-flow{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
+.cl-flow path{fill:none;stroke:#111;stroke-width:2;stroke-linecap:round;stroke-dasharray:5 5}
+.cl-flow polygon{fill:#111}
+.cl-x{display:flex;justify-content:space-between;margin-top:10px;height:18px;line-height:18px;font-size:12px;color:#666}
 .cl-x span{width:40%;text-align:center}
 
 /* FOUNDER STORY */
@@ -168,7 +174,7 @@ section.reviews{background:#F2F3F5;padding:0 18px 46px}
 .rv-title{margin-top:14px;font-size:29px;font-weight:800;color:#111;letter-spacing:-.03em;line-height:1.35}
 .rv-title strong{color:var(--brand)}
 .rv{margin-bottom:34px}
-.rv-img{height:210px;border-radius:0;background:#C6CBD4;border:none;color:#7E8794;font-size:12px}
+.rv-img{aspect-ratio:482/279;background:#C6CBD4 center / cover no-repeat}
 .rv-stars{margin-top:14px;font-size:13px;letter-spacing:3px;color:#1B3C6E}
 .rv-who{margin-top:8px;font-size:13.5px;color:#8A8F96}
 .rv-text{margin-top:10px;font-size:15.5px;color:#222;line-height:1.55;letter-spacing:-.02em}
@@ -178,7 +184,8 @@ section.worry{padding:54px 20px 60px;background:linear-gradient(to bottom,#fff 0
 .wr-title strong{color:var(--brand)}
 .wr-circle{width:180px;height:180px;margin:34px auto 40px;border-radius:50%;background:url('임시 이미지/worry-circle.png') center / cover no-repeat}
 .wr-chat{display:flex;flex-direction:column;gap:18px}
-.wb{max-width:80%;padding:14px 20px;border-radius:999px;font-size:14.5px;font-weight:500;letter-spacing:-.02em;
+.wb{max-width:86%;padding:16px 20px;border-radius:20px;font-size:14.5px;font-weight:500;line-height:1.6;
+  letter-spacing:-.02em;text-align:left;word-break:keep-all;
   background:#fff;color:#1A1A1A;box-shadow:0 4px 14px rgba(24,60,110,.08)}
 .wb.me{align-self:flex-end;background:var(--brand);color:#fff;font-weight:600;box-shadow:0 6px 16px rgba(0,85,160,.25)}
 
@@ -187,6 +194,119 @@ section.worry{padding:54px 20px 60px;background:linear-gradient(to bottom,#fff 0
 .copy-band p{font-size:22px;font-weight:800;line-height:1.55;color:#fff;letter-spacing:-.03em}
 .full-img{font-size:0;line-height:0}
 .full-img img{display:block;width:100%;height:auto}
+/* 결론 네이비 섹션 */
+section.conclusion{background:var(--navy);padding:52px 20px 56px;color:#fff}
+.cc-lead{font-size:22px;font-weight:400;color:#fff;text-align:center;line-height:1.55;letter-spacing:-.03em}
+.cc-lead strong{font-weight:800}
+.cc-img{height:250px;margin-top:28px;border-radius:0;background:rgba(255,255,255,.14);border:none;color:rgba(255,255,255,.55);font-size:12px}
+.cc-next{margin-top:30px;font-size:22px;font-weight:400;color:#fff;text-align:center;line-height:1.5;letter-spacing:-.03em}
+.cc-next strong{font-weight:800}
+section.spic-sec{background:#fff}
+.cmp-title{font-size:30px;line-height:1.35}
+/* 핵심 성분 원형 다이어그램 */
+.ing-map{position:relative;aspect-ratio:1/1;margin:20px 0 10px}
+.ing-lines{position:absolute;inset:0;width:100%;height:100%}
+.ing-lines line{stroke:#BCC8D8;stroke-width:.45;stroke-linecap:round;stroke-dasharray:0 2.2}
+.ing-core{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:38%;aspect-ratio:1/1;
+  border-radius:50%;background:#fff url('임시 이미지/product.png') center / 88% auto no-repeat;
+  box-shadow:0 8px 24px rgba(24,60,110,.10)}
+.ing-node{position:absolute;transform:translate(-50%,-50%);width:17.5%;aspect-ratio:1/1;text-align:center}
+.ing-dot{width:100%;height:100%;border-radius:50%;background:#EDF2F8;border:1px solid var(--line);
+  color:var(--ph-text);font-size:9px}
+.ing-node p{position:absolute;left:50%;top:calc(100% + 8px);transform:translateX(-50%);width:165%;
+  font-size:11.5px;font-weight:700;color:var(--text-dark);line-height:1.35;letter-spacing:-.02em}
+section.sponge-sec{position:relative;color:#fff;
+  background:linear-gradient(rgba(8,40,60,.35),rgba(8,40,60,.55)), url('임시 이미지/sea-bg.png') center / cover no-repeat}
+section.sponge-sec .section-title{color:#fff;text-shadow:0 2px 14px rgba(0,20,35,.45)}
+.sg-lead{display:block;font-size:17px;font-weight:600;letter-spacing:-.02em;white-space:nowrap}
+.sg-big{display:block;margin-top:8px;font-size:38px;font-weight:800;letter-spacing:.04em;line-height:1.2}
+.sponge-img{width:280px;height:250px;margin:16px auto 24px;
+  background:url('임시 이미지/sponge.png') center / contain no-repeat;
+  filter:drop-shadow(0 12px 26px rgba(0,25,45,.35))}
+/* SPICULE-X 특허 + 4가지 특징 (반투명 글래스 카드) */
+.spx-box{margin:18px 0 20px;padding:26px 20px 22px;border-radius:16px;text-align:center;
+  background:rgba(255,255,255,.35);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
+  border:1px solid rgba(255,255,255,.6);box-shadow:0 10px 30px rgba(18,40,77,.10);color:var(--text-black)}
+.spx-label{font-size:13px;color:rgba(255,255,255,.85)}
+.spx-name{margin-top:2px;font-size:26px;font-weight:800;letter-spacing:.06em;color:#fff}
+.spx-desc{margin-top:14px;font-size:14px;color:#fff;line-height:1.8}
+.spx-desc strong{color:#fff;font-weight:800}
+.spx-note{margin-top:10px;font-size:11px;color:rgba(255,255,255,.8);line-height:1.5}
+.spx-grid{display:grid;grid-template-columns:repeat(4,1fr);margin-top:22px}
+.spx-cell{padding:4px 4px;background:none;border:none;border-left:1px solid rgba(255,255,255,.35)}
+.spx-cell:first-child{border-left:none}
+.spx-ic{display:flex;align-items:center;justify-content:center;width:30px;height:30px;margin:0 auto 8px;
+  border-radius:50%;border:1px solid rgba(255,255,255,.5);color:#fff}
+.spx-ic svg{width:16px;height:16px}
+.spx-cell h3{font-size:13.5px;font-weight:800;color:#fff;letter-spacing:-.03em;word-break:keep-all}
+.spx-cell p{margin-top:4px;font-size:11px;font-weight:600;color:rgba(255,255,255,.85);word-break:keep-all;line-height:1.35}
+/* 스피큘 구조 도해 — 가운데 스피큘, 좌우 교차 배치 */
+.sp-wrap{position:relative;margin-top:26px;padding:4px 0}
+.sp-figure{position:absolute;left:50%;transform:translateX(-50%);top:0;bottom:0;width:56px;
+  background:url('임시 이미지/spicule.png') center / 100% 100% no-repeat}
+.sp-item{position:relative;width:calc(50% - 44px);margin-bottom:34px}
+.sp-item:last-of-type{margin-bottom:0}
+.sp-item.right{margin-left:auto;text-align:left}
+.sp-item.left{margin-right:auto;text-align:right}
+.sp-lines{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
+.sp-item.y{color:#E8C25A}.sp-item.t{color:#63B6C7}.sp-item.v{color:#9B93D6}
+.sp-item.g{color:#9AA1A8}.sp-item.n{color:#67B26A}
+.sp-thumb{position:relative;width:78px;height:78px;border-radius:50%;background:#DEDEDE;border:2px solid currentColor;
+  color:#8C8C8C;font-size:9.5px;text-align:center;overflow:hidden}
+.sp-item.left .sp-thumb{margin-left:auto}
+.sp-cap{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-size:13px;font-weight:800;color:#fff;line-height:1.2}
+.sp-label{margin-top:12px;font-size:11.5px;color:#666}
+.sp-name{margin-top:2px;font-size:16px;font-weight:800;color:#111;letter-spacing:-.02em;line-height:1.3}
+.sp-ppm{margin-top:6px;font-size:10.5px;color:#777;line-height:1.35}
+.sp-ppm b{font-size:15px;font-weight:800;color:#111}
+.sp-body{margin-top:8px;font-size:12.5px;color:#333;line-height:1.7;letter-spacing:-.02em;word-break:keep-all}
+.sp-body em{font-style:normal;font-weight:700;color:#111;border-bottom:1.2px solid #111}
+/* 스피큘 끝 → 가운데 초고압 인퓨전 블록으로 내려오는 초록 선 */
+.sp-tech{position:relative;width:100%;max-width:300px;margin:72px auto 0;text-align:center;color:#67B26A}
+.sp-tech::before{content:"";position:absolute;left:50%;top:-64px;height:64px;border-left:1.5px solid #67B26A}
+.sp-tech::after{content:"";position:absolute;left:50%;top:-64px;transform:translate(-50%,-50%);
+  width:9px;height:9px;border-radius:50%;background:#67B26A;border:1.5px solid #fff}
+.sp-tech-img{margin:0 auto;font-size:9px}
+.sp-tech-txt{margin-top:12px;color:#111;text-align:center}
+.sp-foot{margin-top:8px;font-size:10px;color:#999;line-height:1.4}
+/* ===== 등장 애니메이션 ===== */
+.rv-up{opacity:0;transform:translateY(26px);filter:blur(7px);
+  transition:opacity .75s ease,transform .75s cubic-bezier(.22,1,.36,1),filter .75s ease}
+.rv-down{opacity:0;transform:translateY(-22px);filter:blur(6px);
+  transition:opacity .7s ease,transform .7s cubic-bezier(.22,1,.36,1),filter .7s ease}
+.rv-fade{opacity:0;transition:opacity .9s ease}
+.rv-up.shown,.rv-down.shown{opacity:1;transform:none;filter:none}
+.rv-fade.shown{opacity:1}
+/* 채팅 말풍선: 하나씩 */
+.wr-chat .wb{opacity:0;transform:translateY(16px) scale(.97);
+  transition:opacity .5s ease,transform .5s cubic-bezier(.22,1,.36,1)}
+.wr-chat .wb.shown{opacity:1;transform:none}
+/* 스피큘 도해: 원형 썸네일은 좌우에서 슬라이드 */
+.sp-item .sp-thumb{opacity:0;transition:opacity .6s ease,transform .6s cubic-bezier(.22,1,.36,1)}
+.sp-item.right .sp-thumb{transform:translateX(-30px)}
+.sp-item.left .sp-thumb{transform:translateX(30px)}
+.sp-item.shown .sp-thumb{opacity:1;transform:none}
+.sp-item .sp-label,.sp-item .sp-name,.sp-item .sp-ppm,.sp-item .sp-body{
+  opacity:0;transform:translateY(-16px);filter:blur(5px);
+  transition:opacity .6s ease,transform .6s cubic-bezier(.22,1,.36,1),filter .6s ease}
+.sp-item.shown .sp-label{transition-delay:.15s}
+.sp-item.shown .sp-name{transition-delay:.23s}
+.sp-item.shown .sp-ppm{transition-delay:.3s}
+.sp-item.shown .sp-body{transition-delay:.36s}
+.sp-item.shown .sp-label,.sp-item.shown .sp-name,.sp-item.shown .sp-ppm,.sp-item.shown .sp-body{
+  opacity:1;transform:none;filter:none}
+/* 임상 그래프: 막대가 자라고 화살표가 뒤따라 등장 */
+.cl-chart .cl-bar{transform:scaleY(0);transform-origin:bottom;
+  transition:transform 1.05s cubic-bezier(.22,1,.36,1)}
+.cl-chart .cl-bar.after{transition-delay:.28s}
+.cl-chart.shown .cl-bar{transform:scaleY(1)}
+.cl-flow{opacity:0;transition:opacity .35s ease}
+.cl-chart.playing .cl-flow{opacity:1}
+@media (prefers-reduced-motion:reduce){
+  .rv-up,.rv-down,.rv-fade,.wr-chat .wb,.sp-item .sp-thumb,.sp-item .sp-label,.sp-item .sp-name,
+  .sp-item .sp-ppm,.sp-item .sp-body,.cl-chart .cl-bar,.cl-flow{
+    opacity:1!important;transform:none!important;filter:none!important;transition:none!important}
+}
 /* 딥블루 웨이브 밴드 */
 .band{padding:0}
 .band .inner{background:var(--navy);color:#fff;text-align:center;padding:36px 18px;position:relative;overflow:hidden}
@@ -250,7 +370,7 @@ section.worry{padding:54px 20px 60px;background:linear-gradient(to bottom,#fff 0
 <!-- [1b] 2번 섹션 — 히어로와 동일 높이 (배경 이미지) -->
 <div class="hero-sub">
   <div class="sub-inner">
-    <p class="sub-eyebrow">물과 햇빛에 거칠어진 피부결을 위한<br><strong>해면이 남긴 워터 리커버리 스킨 부스터</strong></p>
+    <p class="sub-eyebrow"><strong>청정바다</strong>의 해면 동물이 남긴<br><strong>워터 리커버리</strong> 스킨 부스터</p>
     <h2 class="sub-title">DIAMOND SPICULE<br>5,000 SHOT</h2>
   </div>
 </div>
@@ -263,8 +383,8 @@ section.worry{padding:54px 20px 60px;background:linear-gradient(to bottom,#fff 0
   <p class="cl-sub">주 1회 사용, 4주간의 인체적용시험 결과</p>
   <div class="cl-test">
     <div class="cl-photos">
-      <div class="ph">[사용 전 피부 측정 사진]</div>
-      <div class="ph">[4주 사용 후 피부 측정 사진]</div>
+      <div class="cl-photo" style="background-image:url('임시 이미지/clin-forehead-before.png')"><span class="cl-tag">사용 전</span></div>
+      <div class="cl-photo" style="background-image:url('임시 이미지/clin-forehead-after.png')"><span class="cl-tag">4주 사용 후</span></div>
     </div>
     <div class="cl-result">
       <h3 class="cl-name">이마 주름</h3>
@@ -272,15 +392,16 @@ section.worry{padding:54px 20px 60px;background:linear-gradient(to bottom,#fff 0
       <div class="cl-chart">
         <div class="grid" style="top:24%"></div><div class="grid" style="top:58%"></div>
         <div class="cl-bar before" style="height:100%"></div>
-        <div class="cl-bar after" style="height:51%"></div>
+        <svg class="cl-flow" aria-hidden="true"></svg>
+        <div class="cl-bar after" style="height:46%"></div>
       </div>
       <div class="cl-x"><span>사용 전</span><span>4주 사용 후</span></div>
     </div>
   </div>
   <div class="cl-test">
     <div class="cl-photos">
-      <div class="ph">[사용 전 피부 측정 사진]</div>
-      <div class="ph">[4주 사용 후 피부 측정 사진]</div>
+      <div class="cl-photo" style="background-image:url('임시 이미지/clin-neck-before.png')"><span class="cl-tag">사용 전</span></div>
+      <div class="cl-photo" style="background-image:url('임시 이미지/clin-neck-after.png')"><span class="cl-tag">4주 사용 후</span></div>
     </div>
     <div class="cl-result">
       <h3 class="cl-name">목 주름</h3>
@@ -288,15 +409,16 @@ section.worry{padding:54px 20px 60px;background:linear-gradient(to bottom,#fff 0
       <div class="cl-chart">
         <div class="grid" style="top:24%"></div><div class="grid" style="top:58%"></div>
         <div class="cl-bar before" style="height:100%"></div>
-        <div class="cl-bar after" style="height:86%"></div>
+        <svg class="cl-flow" aria-hidden="true"></svg>
+        <div class="cl-bar after" style="height:68%"></div>
       </div>
       <div class="cl-x"><span>사용 전</span><span>4주 사용 후</span></div>
     </div>
   </div>
   <div class="cl-test">
     <div class="cl-photos">
-      <div class="ph">[사용 전 피부 측정 사진]</div>
-      <div class="ph">[4주 사용 후 피부 측정 사진]</div>
+      <div class="cl-photo" style="background-image:url('임시 이미지/clin-eye-before.png')"><span class="cl-tag">사용 전</span></div>
+      <div class="cl-photo" style="background-image:url('임시 이미지/clin-eye-after.png')"><span class="cl-tag">4주 사용 후</span></div>
     </div>
     <div class="cl-result">
       <h3 class="cl-name">눈가 주름</h3>
@@ -304,23 +426,25 @@ section.worry{padding:54px 20px 60px;background:linear-gradient(to bottom,#fff 0
       <div class="cl-chart">
         <div class="grid" style="top:24%"></div><div class="grid" style="top:58%"></div>
         <div class="cl-bar before" style="height:100%"></div>
-        <div class="cl-bar after" style="height:95%"></div>
+        <svg class="cl-flow" aria-hidden="true"></svg>
+        <div class="cl-bar after" style="height:78%"></div>
       </div>
       <div class="cl-x"><span>사용 전</span><span>4주 사용 후</span></div>
     </div>
   </div>
   <div class="cl-test">
     <div class="cl-photos">
-      <div class="ph">[사용 전 피부 측정 사진]</div>
-      <div class="ph">[4주 사용 후 피부 측정 사진]</div>
+      <div class="cl-photo" style="background-image:url('임시 이미지/clin-smile-before.png')"><span class="cl-tag">사용 전</span></div>
+      <div class="cl-photo" style="background-image:url('임시 이미지/clin-smile-after.png')"><span class="cl-tag">4주 사용 후</span></div>
     </div>
     <div class="cl-result">
       <h3 class="cl-name">웃음선 탄력</h3>
       <p class="cl-delta"><b>13%</b> 증가</p>
       <div class="cl-chart">
         <div class="grid" style="top:24%"></div><div class="grid" style="top:58%"></div>
-        <div class="cl-bar before" style="height:80%"></div>
-        <div class="cl-bar after" style="height:90%"></div>
+        <div class="cl-bar before" style="height:70%"></div>
+        <svg class="cl-flow" aria-hidden="true"></svg>
+        <div class="cl-bar after" style="height:95%"></div>
       </div>
       <div class="cl-x"><span>사용 전</span><span>4주 사용 후</span></div>
     </div>
@@ -345,25 +469,25 @@ section.worry{padding:54px 20px 60px;background:linear-gradient(to bottom,#fff 0
     <h2 class="rv-title">리뷰가 말해주는 진짜<br><strong>#워터피플_부스터</strong></h2>
   </div>
   <div class="rv">
-    <div class="ph rv-img">[Before / After]</div>
+    <div class="rv-img" style="background-image:url('임시 이미지/review-1.png')"></div>
     <div class="rv-stars">★★★★★</div>
     <div class="rv-who">Verified Buyer · Sunday to Monday Official</div>
     <p class="rv-text">매주 스킨케어를 따로 받는 기분이에요. 피부가 한층 밝아지고 매끄러워진 느낌</p>
   </div>
   <div class="rv">
-    <div class="ph rv-img">[Before / After]</div>
+    <div class="rv-img" style="background-image:url('임시 이미지/review-2.png')"></div>
     <div class="rv-stars">★★★★★</div>
     <div class="rv-who">Mia Johnson · Verified Buyer</div>
     <p class="rv-text">2주 사용하니 모공이 눈에 띄게 작아 보이고, 피부도 탄탄해진 느낌이에요</p>
   </div>
   <div class="rv">
-    <div class="ph rv-img">[Before / After]</div>
+    <div class="rv-img" style="background-image:url('임시 이미지/review-3.png')"></div>
     <div class="rv-stars">★★★★★</div>
     <div class="rv-who">Verified Buyer · Sunday to Monday Official</div>
     <p class="rv-text">스킨케어 단계를 한 차원 끌어올린 제품이에요. 피부가 더 밝아지고 매끄러워졌어요</p>
   </div>
   <div class="rv">
-    <div class="ph rv-img">[Before / After]</div>
+    <div class="rv-img" style="background-image:url('임시 이미지/review-4.png')"></div>
     <div class="rv-stars">★★★★★</div>
     <div class="rv-who">Mia Johnson · Verified Buyer</div>
     <p class="rv-text">다른 스피큘 제품도 써봤는데 이건 확실히 다릅니다. 결과가 훨씬 좋아요</p>
@@ -380,10 +504,10 @@ section.worry{padding:54px 20px 60px;background:linear-gradient(to bottom,#fff 0
   <h2 class="wr-title">전 세계 8,000만<br>워터피플의 <strong>피부 고민</strong></h2>
   <div class="wr-circle"></div>
   <div class="wr-chat">
-    <div class="wb ">세안하고 나면 심하게 당기고 뻣뻣해요</div>
-    <div class="wb me">결이 거칠어 화장이 자꾸 떠요</div>
-    <div class="wb ">바르는 화장품이 겉도는 느낌이에요</div>
-    <div class="wb me">햇빛·바람 뒤엔 칙칙하고 푸석해요</div>
+    <div class="wb ">수영장 다녀온 날은 세안하고 나면 바로 얼굴이 당겨요. 크림을 발라도 한 시간만 지나면 다시 뻣뻣해져요.</div>
+    <div class="wb me">결이 거칠어져서 그런지 화장이 자꾸 떠요. 아침에 공들여 발라도 점심쯤엔 들뜨고 각질이 그대로 보여요.</div>
+    <div class="wb ">좋다는 앰플로 바꿔봤는데 겉도는 느낌이에요. 흡수되는 것 같지도 않고 끈적하게 남아만 있어요.</div>
+    <div class="wb me">바다에서 하루 놀고 나면 얼굴이 칙칙해져요. 햇빛이랑 바람 맞은 다음 날은 푸석하고 톤도 죽어 보여요.</div>
   </div>
 </section>
 
@@ -398,47 +522,53 @@ section.worry{padding:54px 20px 60px;background:linear-gradient(to bottom,#fff 0
     <div class="cause-card">
       <span class="cause-no">1</span>
       <h3 class="cause-title">오래 물에 젖으면<br>최대 80%의 수분이 빠져나가요</h3>
-      <div class="ph cause-img">[GIF · 수분이 빠져나가며 푸석해지는 피부(루프)]<span class="cause-stat">약 80% 수분 상실</span></div>
+      <div class="cause-img" style="background-image:url('임시 이미지/cause-1.gif')"></div>
       <p class="cause-body">2시간 수영 직후, 피부에서 빠져나가는 수분량이 부위별로 최대 80%까지 늘어요. 물 밖에선 오히려 더 빨리 건조해져 당기고 푸석해집니다.</p>
     </div>
     <div class="cause-card">
       <span class="cause-no">2</span>
       <h3 class="cause-title">강한 직접 자외선에<br>결과 톤이 거칠어져요</h3>
-      <div class="ph cause-img">[GIF · 자외선에 피부가 상하는 장면(루프)]<span class="cause-stat">약 80% 피부 노화의 원인</span></div>
+      <div class="cause-img" style="background-image:url('임시 이미지/cause-2.gif')"></div>
       <p class="cause-body">눈에 보이는 피부 노화의 약 80%는 자외선(광노화) 때문이에요. 야외 물 위에서 장시간 쬐는 강한 직접 자외선이 결과 톤을 거칠게 만듭니다.</p>
     </div>
     <div class="cause-card">
       <span class="cause-no">3</span>
       <h3 class="cause-title">수영장 염소·잦은 세정으로<br>피부 장벽이 약해져요</h3>
-      <div class="ph cause-img">[GIF · 피부 장벽이 약해지는 장면(루프)]<span class="cause-stat">0.5mg/L↑ 수분 보유력 저하</span></div>
+      <div class="cause-img" style="background-image:url('임시 이미지/cause-3.gif')"></div>
       <p class="cause-body">잔류 염소가 0.5mg/L만 넘어도 각질층이 수분을 붙잡는 힘이 뚜렷하게 떨어져요. 잦고 뜨거운 세정까지 겹치면 장벽은 더 약해집니다.</p>
     </div>
     <p class="note">※ 일반 피부과학 논문 결과이며 특정 제품의 효능이 아닙니다. TEWL 증가는 '수분이 빠져나가는 양의 증가'를 의미하며, 노출 시간·피부 타입에 따라 차이가 있습니다. 소금기 자체가 피부장벽을 파괴한다는 의미는 아닙니다. (출처: 수영선수 피부장벽 연구, 광노화 연구(Flament 등), 잔류염소·해변 자외선 연구)</p>
   </div>
-  <p style="font-size:16px;color:#222;text-align:center;line-height:1.85;letter-spacing:-.02em">이렇게 <strong>두껍고 거칠어진 각질층</strong> 위에서는<br>아무리 비싸고 좋은 앰플, 부스터라도<br><strong>피부속에 전달되지 않게 됩니다.</strong></p>
-  <div class="dark" style="margin-top:22px;text-align:center"><p style="font-size:15px;font-weight:700;color:#fff">그래서 순서를 바꿔야 합니다.</p><p>좋은 성분을 더하기 전에, <strong style="color:#fff">거친 각질을 먼저 정돈하는 한 단계</strong>가 필요해요.</p></div>
+</section>
+
+<!-- [5c] 결론 — 네이비 -->
+<section class="conclusion">
+  <p class="cc-lead">이렇게 <strong>두껍고 거칠어진 각질층</strong>은<br>좋은 성분을 피부속에 <strong>전달되지 못하게</strong> 합니다.</p>
+  <div class="ph cc-img">[이미지 · 각질층 위에서 겉도는 앰플]</div>
+  <p class="cc-next">그렇기 때문에 좋은 성분을 바르기 전,<br><strong>거친 각질층을 먼저 정돈하는 단계</strong>가 필요합니다.</p>
 </section>
 
 <!-- [6-1] 핵심 원료 해면 스피큘 -->
-<section>
-  <div class="point-wrap"><span class="point">Point 03</span></div>
-  <h2 class="section-title">각질을 정돈하는 한 가지,<br><strong>해면 스피큘</strong></h2>
-  <div class="ph ph-square" style="max-width:220px;margin:8px auto 20px;border-radius:20px">[스피큘 원료 확대 이미지]</div>
-  <p style="font-size:14px;color:var(--text-dark);text-align:center;line-height:1.8">청정 바다에 서식하는 해면동물의 골편(스피큘)을,<br><strong style="color:var(--brand-deep)">특허받은 정제 기술</strong>로 순수하게 정제한 천연 원료입니다.</p>
-  <div class="dark" style="margin:18px 0;text-align:center"><div style="font-size:13px;color:rgba(255,255,255,.7)">스피큘 정제 기술 특허</div><div style="font-size:26px;font-weight:800;color:#fff;letter-spacing:.06em">SPICULE-X</div><div class="note" style="color:rgba(255,255,255,.65)">※ 특허번호·권리자 확인 후 표기 · 특허는 효능 인증이 아닙니다</div></div>
-  <div style="display:flex;flex-direction:column;gap:10px">
-    <div class="card" style="display:flex;justify-content:space-between;align-items:center;padding:14px 18px"><h3 style="font-size:15px">각질 정돈</h3><span style="font-size:13px;color:var(--brand-deep);font-weight:700">매끄러운 결</span></div>
-    <div class="card" style="display:flex;justify-content:space-between;align-items:center;padding:14px 18px"><h3 style="font-size:15px">후속 흡수</h3><span style="font-size:13px;color:var(--brand-deep);font-weight:700">겉돌지 않게</span></div>
-    <div class="card" style="display:flex;justify-content:space-between;align-items:center;padding:14px 18px"><h3 style="font-size:15px">보습 케어</h3><span style="font-size:13px;color:var(--brand-deep);font-weight:700">편안한 마무리</span></div>
-    <div class="card" style="display:flex;justify-content:space-between;align-items:center;padding:14px 18px"><h3 style="font-size:15px">주 1회</h3><span style="font-size:13px;color:var(--brand-deep);font-weight:700">부담 없는 리듬</span></div>
+<section class="sponge-sec">
+  <h2 class="section-title"><span class="sg-lead">각질을 정돈하는 한 가지, 해면 스피큘</span><span class="sg-big">SPICULE-X</span></h2>
+  <div class="sponge-img"></div>
+  <div class="spx-box">
+    <p class="spx-label">스피큘 정제 기술 특허</p>
+    <p class="spx-name">SPICULE-X</p>
+    <p class="spx-desc">청정 바다에 서식하는 해면동물의 골편(스피큘)을,<br><strong>특허받은 정제 기술</strong>로 순수하게 정제한 천연 원료입니다.</p>
+    <p class="spx-note">※ 특허번호·권리자 확인 후 표기 · 특허는 효능 인증이 아닙니다</p>
+    <div class="spx-grid">
+      <div class="spx-cell"><span class="spx-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/></svg></span><h3>각질 정돈</h3><p>매끄러운 결</p></div>
+      <div class="spx-cell"><span class="spx-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></svg></span><h3>후속 흡수</h3><p>겉돌지 않게</p></div>
+      <div class="spx-cell"><span class="spx-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 6c.6.5 1.2 1 2.5 1C7 7 7 5 9.5 5c2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 12c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 18c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/></svg></span><h3>보습 케어</h3><p>편안한 마무리</p></div>
+      <div class="spx-cell"><span class="spx-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/><path d="m9 16 2 2 4-4"/></svg></span><h3>주 1회</h3><p>부담 없는 리듬</p></div>
+    </div>
   </div>
-  <div class="card" style="margin-top:14px"><strong>제조 기술</strong><p style="font-size:13px;color:var(--text-gray)">활성 성분을 담은 스피큘 설계 <span class="tag">특허 [번호 기입]</span></p><p class="note">※ 특허는 권리자·해당 청구항 확인 후 표기. 특허=효능 인증 아님.</p></div>
 </section>
 
 <!-- [5c] 비교표 -->
 <section>
-  <div class="point-wrap"><span class="point">Point 04</span></div>
-  <h2 class="section-title">일반 스피큘과<br><strong>무엇이 다를까요?</strong></h2>
+  <h2 class="section-title cmp-title">왜 다른 스피큘이 아닌<br><strong>다이아몬드 스피큘이어야 하나?</strong></h2>
   <p class="section-subtitle">같은 스피큘이 아닙니다. 구조부터 다릅니다</p>
   <table style="width:100%;border-collapse:collapse;font-size:12.5px;line-height:1.5">
     <tr>
@@ -476,30 +606,99 @@ section.worry{padding:54px 20px 60px;background:linear-gradient(to bottom,#fff 0
 </section>
 
 <!-- [5b2] 기술 다이어그램 -->
-<section>
-  <div class="point-wrap"><span class="point">Point 05</span></div>
+<section class="spic-sec">
   <h2 class="section-title">같은 스피큘이라도,<br>다이아몬드를 입었을 때 <strong>결과가 달라집니다</strong></h2>
   <p style="font-size:14px;color:var(--text-dark);text-align:center;line-height:1.85;margin-bottom:22px">다이아몬드 스피큘 5,000샷은 단순 스피큘이 아닌 <strong style="color:var(--brand-deep)">3중 코팅 구조</strong>입니다. 마지막 층, <strong style="color:var(--brand-deep)">다이아몬드 파우더 코팅</strong>이 이 제품 이름의 이유예요.</p>
-  <div class="ph" style="height:300px;margin-bottom:20px;border-radius:16px">[일러스트 · 스피큘 단면 3중 코팅 구조 도해]</div>
-  <div class="card" style="margin-bottom:10px"><span class="tag">1st Coating</span><h4 style="margin:8px 0 4px">지질막 (Lipid Layer)</h4><p style="font-size:13.5px;color:var(--text-gray)">피부와 같은 지질 성분으로 감싸 자연스럽게 녹아내리며, 다음 층의 성분이 부드럽게 이어지도록 돕습니다.</p></div>
-  <div class="card" style="margin-bottom:10px"><span class="tag">2nd Coating</span><h4 style="margin:8px 0 4px">활성 성분 (Active Ingredients)</h4><p style="font-size:13.5px;color:var(--text-gray)">콜라겐·펩타이드·아미노산 등 핵심 성분을 정렬해 코팅하고, 피부 진정에도 도움을 줍니다.</p></div>
-  <div class="card" style="margin-bottom:10px"><span class="tag">3rd Coating · 25ppm</span><h4 style="margin:8px 0 4px">다이아몬드 파우더 (Diamond Powder)</h4><p style="font-size:13.5px;color:var(--text-gray)">미세한 다이아몬드 입자가 빛을 부드럽게 산란시켜 사용 직후 광채감을 더하고, 묵은 각질을 정돈해 다음 케어의 자리를 만들어줍니다.</p></div>
-  <div class="card" style="margin-bottom:10px"><span class="tag">Surface · 10~40nm</span><h4 style="margin:8px 0 4px">마이크로 홀 (Micro Hole)</h4><p style="font-size:13.5px;color:var(--text-gray)">스피큘 표면의 미세한 구멍을 통해 코팅된 성분이 단계적으로 방출되는 구조입니다.</p></div>
-  <div class="card" style="margin-bottom:12px"><span class="tag">Interior · 0.5~1.5μm</span><h4 style="margin:8px 0 4px">마이크로 채널 (Micro Canal)</h4><p style="font-size:13.5px;color:var(--text-gray)">스피큘 내부에 단일 채널이 끝에서 끝까지 이어져, 성분이 원활히 흐를 수 있는 구조를 형성합니다.</p></div>
-  <div class="dark"><span class="tag" style="background:rgba(255,255,255,.15);color:#eee;border-color:rgba(255,255,255,.4)">Sunday to Monday Technology</span><h4 style="color:#fff;margin:8px 0 4px">초고압 인퓨전</h4><p>활성 성분을 스피큘 내부 채널에 초고압으로 충전하는 자체 개발 공법으로, 스피큘 1개당 활성 성분 농도를 높였습니다.</p></div>
+  <div class="sp-wrap">
+    <div class="sp-figure"></div>
+    <svg class="sp-lines" aria-hidden="true"></svg>
+      <div class="sp-item y right">
+        <div class="ph sp-thumb">[지질막]</div>
+        <p class="sp-label">1st Coating</p>
+        <h4 class="sp-name">Lipid Layer</h4>
+        
+        <p class="sp-body">피부와 동일한 지질 성분으로 감싸 자연스럽게 녹아내리며, 다음 층의 <em>활성 성분이 부드럽게 전달</em>되도록 합니다.</p>
+      </div>
+      <div class="sp-item t left">
+        <div class="ph sp-thumb">[활성 성분]</div>
+        <p class="sp-label">2nd Coating</p>
+        <h4 class="sp-name">Active Ingredients</h4>
+        
+        <p class="sp-body">콜라겐·펩타이드·아미노산 등 핵심 성분을 정렬해 <em>코팅. 흡수 효율을 높이는</em> 데 기여하며 <em>피부 진정에도 도움</em>을 줍니다.</p>
+      </div>
+      <div class="sp-item v right">
+        <div class="ph sp-thumb">[다이아몬드]</div>
+        <p class="sp-label">3rd Coating</p>
+        <h4 class="sp-name">Diamond Powder</h4>
+        <p class="sp-ppm">성분 함량 <b>25PPM</b> <span>전성분 표 기준</span></p>
+        <p class="sp-body">미세한 다이아몬드 입자가 빛을 부드럽게 산란시켜, 사용 직후 <em>즉각적인 광채감</em>을 더합니다. 동시에 <em>묵은 각질을 부드럽게 정돈</em>해 다음 단계 스킨케어의 자리를 만들어줍니다.</p>
+      </div>
+      <div class="sp-item g left">
+        <div class="ph sp-thumb">[마이크로 홀]</div>
+        <p class="sp-label">Surface</p>
+        <h4 class="sp-name">Micro Hole</h4>
+        
+        <p class="sp-body">스피큘 표면에는 수많은 10–40nm 크기의 미세한 구멍이 분포해 있습니다. 이 구멍을 통해 <em>코팅된 활성 성분이 단계적으로 방출</em>됩니다.</p>
+      </div>
+      <div class="sp-item n right">
+        <div class="ph sp-thumb"><span class="sp-cap">0.5–1.5<br>μM</span></div>
+        <p class="sp-label">Interior</p>
+        <h4 class="sp-name">Micro Canal</h4>
+        
+        <p class="sp-body">스피큘 내부에는 0.5–1.5μm 폭의 단일 채널이 끝에서 끝까지 이어져 있어, <em>활성 성분이 원활하게 흐를 수 있는</em> 구조를 형성합니다.</p>
+      </div>
+  </div>
+  <div class="sp-tech">
+    <div class="ph sp-thumb sp-tech-img">[형광 표지<br>활성 성분]</div>
+    <div class="sp-tech-txt">
+      <p class="sp-label">Sunday 2 Monday, Technology</p>
+      <h4 class="sp-name">초고압 인퓨전</h4>
+      <p class="sp-body">활성 성분을 스피큘 내부 채널에 <em>초고압으로 충전하는 자체 개발 공법</em>으로, 스피큘 1개당 활성 성분 농도를 극대화했습니다.</p>
+      <p class="sp-foot">※ Active ingredients(fluorescent) in spicules</p>
+    </div>
+  </div>
   <p class="note" style="margin-top:12px">※ 함량(25ppm)·치수(nm·μm)는 완제품 규격서·원료 분석자료로 확인된 값으로 표기합니다.</p>
 </section>
 
 <!-- [6-1b] 성분 -->
 <section>
-  <div class="point-wrap"><span class="point">Point 06</span></div>
-  <h2 class="section-title">중요한 건,<br><strong>무엇을 담았는가</strong></h2>
-  <p class="section-subtitle">다이아몬드 스피큘이 전하는 49가지 성분, 핵심은 다섯 가지</p>
+  <h2 class="section-title">잘 들어가는 게 중요한 만큼,<br><strong>무엇이 들어가는지도 중요합니다</strong></h2>
+  <p class="section-subtitle">49가지 성분이 한 번에, 다이아몬드 스피큘이 전하는 풀 영양 케어</p>
+  <div class="ing-map">
+    <svg class="ing-lines" viewBox="0 0 100 100" aria-hidden="true">
+      <line x1="50.00" y1="29.80" x2="50.00" y2="28.40"/>
+      <line x1="69.21" y1="43.76" x2="70.54" y2="43.33"/>
+      <line x1="61.87" y1="66.34" x2="62.70" y2="67.47"/>
+      <line x1="38.13" y1="66.34" x2="37.30" y2="67.47"/>
+      <line x1="30.79" y1="43.76" x2="29.46" y2="43.33"/>
+    </svg>
+    <div class="ing-core"></div>
+    <div class="ing-node" style="left:50.0%;top:18.5%;--n:0">
+      <div class="ph ing-dot">[이미지]</div>
+      <p>7가지 콜라겐<br>콤플렉스</p>
+    </div>
+    <div class="ing-node" style="left:80.0%;top:40.3%;--n:1">
+      <div class="ph ing-dot">[이미지]</div>
+      <p>15-아미노산<br>콤플렉스</p>
+    </div>
+    <div class="ing-node" style="left:68.5%;top:75.5%;--n:2">
+      <div class="ph ing-dot">[이미지]</div>
+      <p>검증된 기능성<br>성분 2종</p>
+    </div>
+    <div class="ing-node" style="left:31.5%;top:75.5%;--n:3">
+      <div class="ph ing-dot">[이미지]</div>
+      <p>천연 식물<br>추출물 엑소좀</p>
+    </div>
+    <div class="ing-node" style="left:20.0%;top:40.3%;--n:4">
+      <div class="ph ing-dot">[이미지]</div>
+      <p>보습·진정<br>판테놀</p>
+    </div>
+  </div>
   <div class="ing-row">
     <div class="ph ing-img">[이미지]</div>
     <div class="ing-txt"><h3>7가지 콜라겐 콤플렉스</h3><p>각기 다른 분자 크기의 콜라겐을 한 번에, 폭넓게 담았습니다.</p></div>
   </div>
-  <div class="ing-row rev">
+  <div class="ing-row">
     <div class="ph ing-img">[이미지]</div>
     <div class="ing-txt"><h3>15-아미노산 콤플렉스</h3><p>콜라겐의 구성 단위인 아미노산으로, 피부 본연의 단단함 케어에 도움을 줍니다.</p></div>
   </div>
@@ -507,7 +706,7 @@ section.worry{padding:54px 20px 60px;background:linear-gradient(to bottom,#fff 0
     <div class="ph ing-img">[이미지]</div>
     <div class="ing-txt"><h3>검증된 기능성 성분 2종</h3><p>나이아신아마이드(미백)·아데노신(주름개선), 두 가지 식약처 고시 기능성 성분을 함께 담았습니다.</p></div>
   </div>
-  <div class="ing-row rev">
+  <div class="ing-row">
     <div class="ph ing-img">[이미지]</div>
     <div class="ing-txt"><h3>천연 식물 추출물 엑소좀</h3><p>센텔라·티트리 등 자연 유래 진정 성분으로 피부를 편안하게 합니다.</p></div>
   </div>
@@ -516,10 +715,6 @@ section.worry{padding:54px 20px 60px;background:linear-gradient(to bottom,#fff 0
     <div class="ing-txt"><h3>보습·진정 기본기, 판테놀</h3><p>판테놀(비타민 B5)이 보습과 진정의 기본을 잡아줍니다.</p></div>
   </div>
   <p class="note">※ 기능성(미백·주름개선)은 완제품 기능성화장품 심사·보고 완료 시에만 표기하며, 스피큘·다이아몬드를 기능성 주성분처럼 표기하지 않습니다.</p>
-  <div class="dark" style="margin-top:20px;text-align:center;border-radius:20px;padding:28px 20px">
-    <div style="font-size:40px;font-weight:800;color:#fff;line-height:1">49<span style="font-size:20px">가지</span></div>
-    <p style="margin-top:8px">49가지 성분이 한 번에,<br>다이아몬드 스피큘이 전하는 풀 영양 케어</p>
-  </div>
 </section>
 
 <!-- [6-4] 사용법 3STEP -->
@@ -773,6 +968,270 @@ section.worry{padding:54px 20px 60px;background:linear-gradient(to bottom,#fff 0
 
   Array.prototype.forEach.call(els, function (el) { io.observe(el); });
 })();
+
+/* 임상 그래프: 사용 전 → 사용 후 곡선 화살표 */
+(function () {
+  var NS = 'http://www.w3.org/2000/svg';
+
+  function draw(chart) {
+    var svg = chart.querySelector('.cl-flow');
+    var b = chart.querySelector('.cl-bar.before');
+    var a = chart.querySelector('.cl-bar.after');
+    if (!svg || !b || !a) return;
+
+    var cw = chart.clientWidth, ch = chart.clientHeight;
+    if (!cw) return;
+    var cr = { width: cw, height: ch };
+
+    var x1 = b.offsetLeft + b.offsetWidth / 2;
+    var y1 = b.offsetTop;
+    var x2 = a.offsetLeft + a.offsetWidth / 2;
+    var y2 = a.offsetTop;
+    // 점 중심에서 점 가장자리까지만 띄우고 직선으로 연결
+    var R = 7, HEAD = 10;                     // 점 반지름, 화살촉 길이
+    var dx = x2 - x1, dy = y2 - y1;
+    var len = Math.sqrt(dx * dx + dy * dy) || 1;
+    var ux = dx / len, uy = dy / len;
+    var sx = x1 + ux * R, sy = y1 + uy * R;   // 사용 전 점 가장자리
+    var ex = x2 - ux * R, ey = y2 - uy * R;   // 사용 후 점 가장자리
+    var tx = ex - ux * HEAD, ty = ey - uy * HEAD;  // 점선 꼬리 끝
+
+    svg.setAttribute('viewBox', '0 0 ' + cr.width + ' ' + cr.height);
+    svg.innerHTML = '';
+
+    var path = document.createElementNS(NS, 'path');
+    svg.appendChild(path);
+    var head = document.createElementNS(NS, 'polygon');
+    svg.appendChild(head);
+
+    var w = 5.5;
+    function render(pr) {                       // 0 = 사용 전 점, 1 = 사용 후 점
+      var hx = sx + (ex - sx) * pr, hy = sy + (ey - sy) * pr;   // 화살촉 끝
+      var bx = hx - ux * HEAD, by = hy - uy * HEAD;             // 화살촉 밑변 중앙
+      path.setAttribute('d', 'M' + sx + ',' + sy + ' L' + bx + ',' + by);
+      head.setAttribute('points', hx + ',' + hy + ' ' +
+        (bx - uy * w) + ',' + (by + ux * w) + ' ' + (bx + uy * w) + ',' + (by - ux * w));
+    }
+    render(chart._played ? 1 : 0);      // 다시 그릴 때 이미 재생됐으면 끝 상태 유지
+
+    chart._playArrow = function () {
+      chart._played = true;
+      chart.classList.add('playing');
+      var st = null, dur = 900;
+      function step(ts) {
+        if (st === null) st = ts;
+        var pr = Math.min((ts - st) / dur, 1);
+        render(1 - Math.pow(1 - pr, 3));
+        if (pr < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    };
+  }
+
+  function drawAll() {
+    Array.prototype.forEach.call(document.querySelectorAll('.cl-chart'), draw);
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', drawAll);
+  else drawAll();
+  window.addEventListener('resize', drawAll);
+  window.addEventListener('load', drawAll);
+})();
+
+/* 스피큘 도해: 각 블록 → 해당 층 위치에 연결선 + 점 */
+(function () {
+  var NS = 'http://www.w3.org/2000/svg';
+  // 스피큘 실루엣의 세로 위치별 반폭 비율(0~1), 0%~100%를 101단계로 샘플링
+  var PROFILE = [0.038,0.204,0.285,0.349,0.398,0.441,0.478,0.511,0.548,0.575,0.602,0.629,0.651,0.677,0.699,0.715,
+    0.737,0.753,0.769,0.785,0.801,0.817,0.833,0.844,0.855,0.866,0.876,0.887,0.898,0.909,0.919,0.925,0.935,0.941,
+    0.952,0.957,0.962,0.968,0.973,0.978,0.984,0.984,0.989,0.989,0.995,0.995,0.995,0.995,1,1,1,1,1,0.995,0.995,
+    0.995,0.995,0.989,0.989,0.984,0.984,0.978,0.973,0.968,0.962,0.957,0.952,0.941,0.935,0.925,0.919,0.909,0.898,
+    0.887,0.876,0.866,0.855,0.844,0.833,0.817,0.801,0.785,0.769,0.753,0.737,0.715,0.694,0.672,0.651,0.629,0.602,
+    0.575,0.543,0.511,0.478,0.435,0.392,0.344,0.285,0.204,0.022];
+  // 층별 위치(중심=0, 바깥 끝=1): 지질막·활성성분·다이아몬드·본체(마이크로홀)·중앙채널
+  var LAYER = [0.91, 0.73, 0.54, 0.27, 0];
+
+  function draw() {
+    var wrap = document.querySelector('.sp-wrap');
+    var svg = wrap && wrap.querySelector('.sp-lines');
+    var fig = wrap && wrap.querySelector('.sp-figure');
+    if (!wrap || !svg || !fig) return;
+
+    var wr = { width: wrap.clientWidth, height: wrap.clientHeight };
+    var fr = { left: fig.offsetLeft, top: fig.offsetTop, width: fig.offsetWidth, height: fig.offsetHeight };
+    if (!wr.width) return;
+    var cx = wr.width / 2;            // 스피큘은 래퍼 정중앙
+    var halfPx = fr.width / 2;
+
+    svg.setAttribute('viewBox', '0 0 ' + wr.width + ' ' + wr.height);
+    svg.innerHTML = '';
+
+    var items = wrap.querySelectorAll('.sp-item');
+    Array.prototype.forEach.call(items, function (item, i) {
+      var thumb = item.querySelector('.sp-thumb');
+      if (!thumb) return;
+      var ir = { left: item.offsetLeft, right: item.offsetLeft + item.offsetWidth };
+      var y = item.offsetTop + thumb.offsetTop + thumb.offsetHeight / 2;
+
+      // 그 높이에서의 스피큘 반폭
+      var t = Math.max(0, Math.min(1, (y - fr.top) / fr.height));
+      var idx = t * (PROFILE.length - 1);
+      var lo = Math.floor(idx), hi = Math.min(PROFILE.length - 1, lo + 1);
+      var w = PROFILE[lo] + (PROFILE[hi] - PROFILE[lo]) * (idx - lo);
+
+      var right = item.classList.contains('right');
+      var dx = LAYER[i] * w * halfPx;
+      var dotX = right ? cx + dx : cx - dx;
+      var startX = right ? ir.left : ir.right;
+      var color = getComputedStyle(item).color;
+
+      // 스피큘(점)에서 블록 쪽으로 자라나도록 x1=점, x2=블록
+      var line = document.createElementNS(NS, 'line');
+      line.setAttribute('x1', dotX);   line.setAttribute('y1', y);
+      line.setAttribute('x2', startX); line.setAttribute('y2', y);
+      line.setAttribute('stroke', color);
+      line.setAttribute('stroke-width', '1.5');
+      var len = Math.abs(startX - dotX) + 1;
+      line.style.strokeDasharray = len;
+      line.style.transition = 'stroke-dashoffset .7s cubic-bezier(.22,1,.36,1) .05s';
+      line.style.strokeDashoffset = item.classList.contains('shown') ? 0 : len;
+      svg.appendChild(line);
+
+      var dot = document.createElementNS(NS, 'circle');
+      dot.setAttribute('cx', dotX); dot.setAttribute('cy', y); dot.setAttribute('r', '4');
+      dot.setAttribute('fill', color);
+      dot.setAttribute('stroke', '#fff');
+      dot.setAttribute('stroke-width', '1.5');
+      dot.style.transformOrigin = dotX + 'px ' + y + 'px';
+      dot.style.transition = 'transform .45s cubic-bezier(.34,1.56,.64,1), opacity .35s ease';
+      if (!item.classList.contains('shown')) { dot.style.transform = 'scale(0)'; dot.style.opacity = '0'; }
+      svg.appendChild(dot);
+
+      item._line = line; item._dot = dot; item._len = len;
+    });
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', draw);
+  else draw();
+  window.addEventListener('load', draw);
+  window.addEventListener('resize', draw);
+})();
+
+/* ===== 스크롤 등장 애니메이션 ===== */
+(function () {
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce || !('IntersectionObserver' in window)) return;
+
+  var SKIP = '.hero, .hero-sub';           // 첫 화면은 그대로 노출
+  function inSkip(el) { return !!el.closest(SKIP); }
+
+  var IMG_SEL = '.ph, .cl-photo, .rv-img, .cause-img, .sponge-img, .ing-map, .full-img img, .sp-tech-img';
+  var BOX_SEL = '.card, .spx-box, .ing-row, .rev, .step, .qa, section table, .dark';
+  var TXT_SEL = 'section h1, section h2, section h3, section h4, section p, section li,'
+              + ' .point-wrap, .test-tag, .cause-no, .copy-band p, .wr-title, .cl-title, .cl-sub,'
+              + ' .cl-name, .cl-delta, .cl-x, .fd-title, .fd-body, .fd-sign, .cc-lead, .cc-next, .sp-tech-txt';
+
+  function tag(sel, cls) {
+    Array.prototype.forEach.call(document.querySelectorAll(sel), function (el) {
+      if (inSkip(el)) return;
+      if (el.closest('.sp-item') || el.closest('.ing-node')) return;                 // 자체 애니메이션 사용
+      if (el.classList.contains('rv-up') || el.classList.contains('rv-fade')) return;
+      if (el.parentElement && el.parentElement.closest('.rv-up, .rv-fade')) return;  // 상위가 이미 움직임
+      if (cls === 'rv-up' && el.querySelector(IMG_SEL)) return;                      // 이미지를 품은 묶음 제외
+      el.classList.add(cls);
+    });
+  }
+  tag(IMG_SEL, 'rv-fade');
+  tag(BOX_SEL, 'rv-up');
+  tag(TXT_SEL, 'rv-up');
+
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      e.target.classList.add('shown');
+      io.unobserve(e.target);
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
+
+  Array.prototype.forEach.call(document.querySelectorAll('.rv-up, .rv-fade'), function (el) { io.observe(el); });
+
+  // 안전장치: 화면에 들어온 요소는 반드시 보이게
+  var ticking = false;
+  function sweep() {
+    ticking = false;
+    var h = window.innerHeight;
+    Array.prototype.forEach.call(document.querySelectorAll('.rv-up:not(.shown), .rv-fade:not(.shown)'), function (el) {
+      var r = el.getBoundingClientRect();
+      if (r.top < h * 0.92 && r.bottom > 0) el.classList.add('shown');
+    });
+  }
+  function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(sweep); } }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+  window.addEventListener('load', sweep);
+  setTimeout(sweep, 300);
+
+  /* 채팅 말풍선: 순서대로 하나씩 */
+  var chat = document.querySelector('.wr-chat');
+  if (chat) {
+    var chatIO = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        Array.prototype.forEach.call(chat.children, function (b, i) {
+          setTimeout(function () { b.classList.add('shown'); }, 220 * i);
+        });
+        chatIO.unobserve(e.target);
+      });
+    }, { threshold: 0.25 });
+    chatIO.observe(chat);
+  }
+
+  /* 스피큘 도해: 블록별 점·선·원형 + 텍스트 */
+  var spIO = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      var item = e.target;
+      item.classList.add('shown');
+      if (item._line) item._line.style.strokeDashoffset = 0;
+      if (item._dot) { item._dot.style.transform = 'scale(1)'; item._dot.style.opacity = '1'; }
+      spIO.unobserve(item);
+    });
+  }, { threshold: 0.3 });
+  Array.prototype.forEach.call(document.querySelectorAll('.sp-item'), function (el) { spIO.observe(el); });
+
+  /* 임상 그래프: 막대 성장 → 수치 카운트업 → 화살표 이동 */
+  function countUp(el, to, suffix, dur) {
+    var start = null;
+    function step(ts) {
+      if (start === null) start = ts;
+      var pr = Math.min((ts - start) / dur, 1);
+      el.textContent = Math.round(to * (1 - Math.pow(1 - pr, 3))) + suffix;
+      if (pr < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  var clIO = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      var chart = e.target;
+      chart.classList.add('shown');
+      var result = chart.closest('.cl-result');
+      var num = result && result.querySelector('.cl-delta b');
+      if (num) {
+        var m = num.textContent.match(/([\d.]+)(.*)/);
+        if (m) {
+          num.textContent = '0' + m[2];
+          setTimeout(function () { countUp(num, parseFloat(m[1]), m[2], 1200); }, 450);
+        }
+      }
+      setTimeout(function () { if (chart._playArrow) chart._playArrow(); }, 1150);
+      clIO.unobserve(chart);
+    });
+  }, { threshold: 0.35 });
+  Array.prototype.forEach.call(document.querySelectorAll('.cl-chart'), function (el) { clIO.observe(el); });
+})();
+
 </script>
 
 </body>
