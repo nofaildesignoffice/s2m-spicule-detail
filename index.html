@@ -484,6 +484,12 @@ section.evi-sec{background:#F2F3F5}
 .marquee-track span{font-size:15px;font-weight:800;letter-spacing:.06em;color:#fff;white-space:nowrap}
 .marquee-track i{font-style:normal;font-size:9px;color:var(--sky);margin:0 18px}
 @keyframes marquee-run{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+/* 성분 띠배너 — 흰 배경 · 검은 텍스트 · 원형 구분점 */
+.ing-marquee{background:#fff;border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft)}
+.ing-marquee .marquee-track{animation-duration:72s}
+.ing-marquee .marquee-track span{font-size:13px;font-weight:600;color:#111;letter-spacing:-.01em}
+.ing-marquee .marquee-track i{display:inline-block;width:4px;height:4px;border-radius:50%;
+  background:#111;margin:0 14px;font-size:0;vertical-align:middle}
 @media (prefers-reduced-motion:reduce){.marquee-track{animation:none}}
 /* 스피큘 비교표 */
 .cmp-wrap{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:0 12px;margin-top:70px}
@@ -496,7 +502,13 @@ section.evi-sec{background:#F2F3F5}
 .cmp-head.dia .cmp-circle{background-color:#EAF1F8}
 .cmp-note{position:relative;z-index:3;margin-top:34px}
 .cmp-glow{position:absolute;left:calc(50% + 6px);right:0;top:0;bottom:0;border-radius:20px;z-index:0;
-  box-shadow:0 14px 34px rgba(140,193,233,.75), 0 0 0 6px rgba(140,193,233,.18)}
+  box-shadow:0 14px 34px rgba(140,193,233,.75), 0 0 0 6px rgba(140,193,233,.18);
+  animation:cmp-pulse 3.4s ease-in-out infinite}
+@keyframes cmp-pulse{
+  0%,100%{box-shadow:0 10px 24px rgba(140,193,233,.42), 0 0 0 3px rgba(140,193,233,.1)}
+  50%{box-shadow:0 18px 46px rgba(140,193,233,.95), 0 0 0 10px rgba(140,193,233,.26)}
+}
+@media (prefers-reduced-motion:reduce){.cmp-glow{animation:none}}
 .cmp-cell{position:relative;background:#fff;padding:16px 10px;text-align:center;font-size:13.5px;font-weight:700;
   line-height:1.45;letter-spacing:-.02em;word-break:keep-all}
 .cmp-cell.base{border-left:1.5px solid #CFD4D9;border-right:1.5px solid #CFD4D9;color:#8C9196}
@@ -956,6 +968,11 @@ section.evi-sec{background:#F2F3F5}
     <div class="fb-item" style="top:74.9%;width:49.3%;--i:3"><p class="fb-desc">식물엑소좀의<br>콜라겐 합성</p><span class="fb-word">탄력</span></div>
     <div class="fb-item" style="top:80.4%;width:70.8%;--i:4"><p class="fb-desc">49가지<br>활성성분 집중함유</p><span class="fb-word">영양</span></div>
   </div>
+</div>
+
+<!-- [6-1b0] 성분 띠배너 -->
+<div class="marquee ing-marquee" aria-hidden="true">
+  <div class="marquee-track"><span>가수분해 콜라겐</span><i></i><span>아텔로콜라겐</span><i></i><span>데스아미도콜라겐</span><i></i><span>가용성 콜라겐</span><i></i><span>콜라겐</span><i></i><span>콜라겐 아미노산</span><i></i><span>다이아몬드 콜라겐</span><i></i><span>글라이신</span><i></i><span>세린</span><i></i><span>글루타민산</span><i></i><span>아스파르트산</span><i></i><span>류신</span><i></i><span>알라닌</span><i></i><span>라이신</span><i></i><span>아르기닌</span><i></i><span>타이로신</span><i></i><span>페닐알라닌</span><i></i><span>발린</span><i></i><span>트레오닌</span><i></i><span>프롤린</span><i></i><span>아이소류신</span><i></i><span>아미노 에스터-1</span><i></i><span>나이아신아마이드</span><i></i><span>아데노신</span><i></i><span>센텔라 아시아티카 추출물</span><i></i><span>멜리아 아자디라크타 잎·꽃 추출물</span><i></i><span>오시멈 산크툼 잎 추출물</span><i></i><span>오시멈 바실리쿰 추출물</span><i></i><span>판테놀</span><i></i><span>가수분해 콜라겐</span><i></i><span>아텔로콜라겐</span><i></i><span>데스아미도콜라겐</span><i></i><span>가용성 콜라겐</span><i></i><span>콜라겐</span><i></i><span>콜라겐 아미노산</span><i></i><span>다이아몬드 콜라겐</span><i></i><span>글라이신</span><i></i><span>세린</span><i></i><span>글루타민산</span><i></i><span>아스파르트산</span><i></i><span>류신</span><i></i><span>알라닌</span><i></i><span>라이신</span><i></i><span>아르기닌</span><i></i><span>타이로신</span><i></i><span>페닐알라닌</span><i></i><span>발린</span><i></i><span>트레오닌</span><i></i><span>프롤린</span><i></i><span>아이소류신</span><i></i><span>아미노 에스터-1</span><i></i><span>나이아신아마이드</span><i></i><span>아데노신</span><i></i><span>센텔라 아시아티카 추출물</span><i></i><span>멜리아 아자디라크타 잎·꽃 추출물</span><i></i><span>오시멈 산크툼 잎 추출물</span><i></i><span>오시멈 바실리쿰 추출물</span><i></i><span>판테놀</span><i></i></div>
 </div>
 
 <!-- [6-1b] 성분 -->
