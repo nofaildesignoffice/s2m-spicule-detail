@@ -108,6 +108,10 @@ ul{list-style:none}
 .hero-inner::before{content:"";position:absolute;left:0;right:0;top:0;height:28%;pointer-events:none;
   background:linear-gradient(to bottom,rgba(0,85,160,.8) 0%,rgba(0,85,160,.66) 42%,
     rgba(0,85,160,.34) 76%,rgba(0,85,160,0) 100%)}
+/* 하단 인증 아이콘 가독성용 검은 그라디언트 */
+.hero-inner::after{content:"";position:absolute;left:0;right:0;bottom:0;height:32%;pointer-events:none;
+  background:linear-gradient(to top,rgba(0,0,0,.62) 0%,rgba(0,0,0,.42) 38%,
+    rgba(0,0,0,.18) 70%,rgba(0,0,0,0) 100%)}
 .hero-inner > *{position:relative;z-index:1}
 .hero-copy{text-shadow:0 2px 14px rgba(18,40,77,.28)}
 .hero-title{font-size:34px;font-weight:800;line-height:1.3;letter-spacing:-.03em}
