@@ -211,6 +211,10 @@ section.worry{padding:54px 20px 60px;background:linear-gradient(to bottom,#fff 0
 .copy-band p{font-size:22px;font-weight:800;line-height:1.55;color:#fff;letter-spacing:-.03em}
 .full-img{font-size:0;line-height:0}
 .full-img img{display:block;width:100%;height:auto}
+/* 다음 섹션 배경색으로 자연스럽게 연결되는 하단 페이드 */
+.full-img.fade-btm{position:relative}
+.full-img.fade-btm::after{content:"";position:absolute;left:0;right:0;bottom:0;height:34%;pointer-events:none;
+  background:linear-gradient(to top,#fff 0%,rgba(255,255,255,.92) 22%,rgba(255,255,255,.5) 58%,rgba(255,255,255,0) 100%)}
 /* 결론 네이비 섹션 */
 section.conclusion{background:var(--navy);padding:52px 20px 56px;color:#fff}
 .cc-lead{font-size:22px;font-weight:400;color:#fff;text-align:center;line-height:1.55;letter-spacing:-.03em}
@@ -1099,7 +1103,7 @@ section.evi-sec{background:#F2F3F5}
 
 <!-- [6-4] 사용법 3STEP -->
 <!-- 성분 → 사용법 사이 이미지 -->
-<div class="full-img"><img src="임시 이미지/ing-htu-bridge.jpg" alt=""></div>
+<div class="full-img fade-btm"><img src="임시 이미지/ing-htu-bridge.jpg" alt=""></div>
 
 <section class="htu-sec">
   <h2 class="section-title">주 1회, ONE SHOT<br><strong>이렇게, 사용하세요</strong></h2>
