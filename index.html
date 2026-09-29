@@ -215,7 +215,10 @@ section.worry{padding:54px 20px 60px;background:linear-gradient(to bottom,#fff 0
 .full-img{font-size:0;line-height:0}
 .full-img img{display:block;width:100%;height:auto}
 /* 다음 섹션 배경색으로 자연스럽게 연결되는 하단 페이드 */
-.full-img.fade-btm{position:relative}
+.full-img.fade-btm,.full-img.fade-btm-gray{position:relative}
+.full-img.fade-btm-gray::after{content:"";position:absolute;left:0;right:0;bottom:0;height:30%;pointer-events:none;
+  background:linear-gradient(to top,#F2F3F5 0%,rgba(242,243,245,.9) 26%,
+    rgba(242,243,245,.45) 62%,rgba(242,243,245,0) 100%)}
 .full-img.fade-btm::after{content:"";position:absolute;left:0;right:0;bottom:0;height:34%;pointer-events:none;
   background:linear-gradient(to top,#fff 0%,rgba(255,255,255,.92) 22%,rgba(255,255,255,.5) 58%,rgba(255,255,255,0) 100%)}
 /* 결론 네이비 섹션 */
@@ -1135,7 +1138,7 @@ section.evi-sec{background:#F2F3F5}
 </section>
 
 <!-- EVIDENCE 상단 풀이미지 -->
-<div class="full-img"><img src="임시 이미지/evi-top.jpg" alt=""></div>
+<div class="full-img fade-btm-gray"><img src="임시 이미지/evi-top.jpg" alt=""></div>
 
 <!-- [7] EVIDENCE — SCI + 인증 -->
 <section class="evi-sec">
