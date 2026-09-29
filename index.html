@@ -468,13 +468,13 @@ section.guarantee .note{color:rgba(255,255,255,.65)}
   background:rgba(255,255,255,.92) center / cover no-repeat;
   border:1px solid rgba(255,255,255,.55);box-shadow:0 12px 30px rgba(0,18,40,.22)}
 /* REAL STORIES */
-section.stories{background:#F2F3F5;padding:0 18px 46px}
+section.stories,.stories-2{background:#F2F3F5;padding:0 18px 46px}
 .st-top{aspect-ratio:1/1;margin:0 -18px 18px;
   background:url('임시 이미지/stories-top2.jpg') center 42% / cover no-repeat;
   -webkit-mask-image:linear-gradient(to bottom,#000 60%,transparent 100%);
   mask-image:linear-gradient(to bottom,#000 60%,transparent 100%)}
-section.stories .section-title{text-align:center}
-section.stories .rv{margin-bottom:34px}
+section.stories .section-title,.stories-2 .section-title{text-align:center}
+section.stories .rv,.stories-2 .rv{margin-bottom:34px}
 section.evi-sec{background:#F2F3F5}
 /* 문서 카드 슬라이더 */
 .doc-slider{margin:22px -20px 0;--doc-gap:12px}
@@ -679,6 +679,33 @@ section.evi-sec{background:#F2F3F5}
     <p class="sub-eyebrow"><strong>청정바다</strong>의 해면 동물이 남긴<br><strong>워터 리커버리</strong> 스킨 부스터</p>
     <h2 class="sub-title">DIAMOND SPICULE<br>5,000 SHOT</h2>
   </div>
+</div>
+
+<!-- [1b] STORIES — 두번째 섹션 다음 -->
+<div class="stories-2">
+  <div class="st-top"></div>
+  <h2 class="section-title">달라진 하루</h2>
+  <p class="section-subtitle">물을 포기하지 않는 사람들의 사용 전·후</p>
+  <div class="rv">
+    <div class="rv-img" style="background-image:url('임시 이미지/story-tone.png')"></div>
+    <div class="rv-stars">★★★★★</div>
+    <div class="rv-who">서퍼 · 실제 후기 자리</div>
+    <p class="rv-text">주말 서핑, 주중에 한 샷. 다음 날 결이 정돈돼서 화장이 확실히 잘 먹고, 톤도 한결 맑고 윤기 있어 보여요</p>
+  </div>
+  <div class="rv">
+    <div class="rv-img" style="background-image:url('임시 이미지/story-eye.png')"></div>
+    <div class="rv-stars">★★★★★</div>
+    <div class="rv-who">프리다이빙 수강생 · 실제 후기 자리</div>
+    <p class="rv-text">눈가 잔주름이 제일 신경 쓰였는데, 자글자글하던 결이 얕아지고 눈밑 그늘까지 옅어졌어요</p>
+  </div>
+  <div class="rv">
+    <div class="rv-img" style="background-image:url('임시 이미지/story-smile.png')"></div>
+    <div class="rv-stars">★★★★★</div>
+    <div class="rv-who">일반 사용자 · 실제 후기 자리</div>
+    <p class="rv-text">팔자 라인이 깊어 보여 고민이었어요. 라인이 부드러워지니 인상이 훨씬 편해 보인다는 말을 들었어요</p>
+  </div>
+  <p class="section-subtitle" style="margin:22px 0 6px">물이 남긴 흔적은, 바다에서 온 것으로.</p>
+  <p class="note" style="text-align:center">※ 개인의 사용 경험이며, 효과는 개인차가 있을 수 있습니다.</p>
 </div>
 
 <!-- [2] PROOF — 임상 바차트 -->
@@ -1530,7 +1557,8 @@ section.evi-sec{background:#F2F3F5}
   var TXT_SEL = 'section h1, section h2, section h3, section h4, section p, section li,'
               + ' .point-wrap, .test-tag, .cause-no, .copy-band p, .wr-title, .cl-title, .cl-sub,'
               + ' .cl-name, .cl-delta, .cl-x, .fd-title, .fd-body, .fd-sign, .cc-lead, .cc-next, .sp-tech-txt,'
-              + ' .sub-eyebrow, .sub-title, .fb-lead, .fb-title, .fb-sub';
+              + ' .sub-eyebrow, .sub-title, .fb-lead, .fb-title, .fb-sub,'
+              + ' .stories-2 h2, .stories-2 p';
 
   function tag(sel, cls) {
     Array.prototype.forEach.call(document.querySelectorAll(sel), function (el) {
