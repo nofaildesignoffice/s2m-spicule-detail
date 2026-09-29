@@ -216,10 +216,10 @@ section.worry{padding:54px 20px 60px;background:linear-gradient(to bottom,#fff 0
 .full-img img{display:block;width:100%;height:auto}
 /* 다음 섹션 배경색으로 자연스럽게 연결되는 하단 페이드 */
 .full-img.fade-btm,.full-img.fade-btm-gray{position:relative}
-.full-img.fade-btm-gray{background:linear-gradient(to bottom,#F2F3F5 0%,#F7F8F9 45%,#FFFFFF 100%)}
+.full-img.fade-btm-gray{background:linear-gradient(to bottom,#FFFFFF 0%,#F8F9FA 45%,#F2F3F5 100%)}
 .full-img.fade-btm-gray::after{content:"";position:absolute;left:0;right:0;bottom:0;height:30%;pointer-events:none;
-  background:linear-gradient(to top,#FFFFFF 0%,rgba(255,255,255,.9) 26%,
-    rgba(255,255,255,.45) 62%,rgba(255,255,255,0) 100%)}
+  background:linear-gradient(to top,#F2F3F5 0%,rgba(242,243,245,.9) 26%,
+    rgba(242,243,245,.45) 62%,rgba(242,243,245,0) 100%)}
 .full-img.fade-btm::after{content:"";position:absolute;left:0;right:0;bottom:0;height:34%;pointer-events:none;
   background:linear-gradient(to top,#fff 0%,rgba(255,255,255,.92) 22%,rgba(255,255,255,.5) 58%,rgba(255,255,255,0) 100%)}
 /* 결론 네이비 섹션 */
@@ -423,7 +423,10 @@ section.qna{background:#F2F3F5}
   .fb-item{opacity:1;transform:translateY(-50%)}
   .fb-seg{stroke-dashoffset:0}
 }
-section.guarantee{background:var(--navy);padding-top:76px;padding-bottom:76px}
+section.guarantee{position:relative;padding-top:76px;padding-bottom:76px;
+  background:url('임시 이미지/guarantee-bg.jpg') center / cover no-repeat}
+section.guarantee::before{content:"";position:absolute;inset:0;background:rgba(0,0,0,.62)}
+section.guarantee > *{position:relative;z-index:1}
 section.guarantee .eyebrow{color:rgba(255,255,255,.72)}
 section.guarantee .section-title,section.guarantee .section-title strong{color:#fff}
 section.guarantee .gt-body{color:rgba(255,255,255,.92)}
@@ -436,6 +439,12 @@ section.guarantee .note{color:rgba(255,255,255,.65)}
 .gt-body{margin-top:16px;text-align:center;font-size:14px;color:var(--text-dark);
   line-height:1.85;letter-spacing:-.02em;word-break:keep-all}
 .gt-body strong{font-weight:800;color:var(--brand-deep)}
+/* 상품정보 제공고시 표 */
+.info-table{margin-top:14px;border-top:1.5px solid var(--line)}
+.info-row{display:flex;gap:12px;padding:11px 2px;border-bottom:1px solid var(--line-soft);
+  font-size:12.5px;line-height:1.6;color:var(--text-dark);letter-spacing:-.02em;word-break:keep-all}
+.info-row strong{flex:0 0 40%;font-weight:700;color:var(--text-black)}
+.info-row span{flex:1;min-width:0;color:var(--text-gray)}
 /* 프로그램 한눈에 비교 — 비교표 디자인 적용 */
 .pg-tbl-wrap{position:relative;margin-top:16px}
 .pg-glow{position:absolute;left:0;right:0;top:34%;height:34%;border-radius:18px;z-index:0;
@@ -487,6 +496,7 @@ section.evi-sec{background:#F2F3F5}
 .doc-track{display:flex;gap:var(--doc-gap);will-change:transform;touch-action:pan-y}
 .doc-slide{flex:0 0 72%;transition:opacity .45s ease,transform .45s ease;opacity:.55}
 .doc-slide.is-active{opacity:1}
+.doc-slider.papers .doc-img{aspect-ratio:3/2}
 .doc-img.doc-real{background-color:#fff;background-size:contain;background-position:center;
   background-repeat:no-repeat;border:1px solid var(--line);color:transparent}
 .doc-img{aspect-ratio:3/4;border-radius:16px;background:var(--ph-bg);border:1px dashed #A9D3E8;
@@ -1147,7 +1157,7 @@ section.evi-sec{background:#F2F3F5}
 <!-- [7] EVIDENCE — SCI + 인증 -->
 <section class="evi-sec">
   <h2 class="section-title">SCI 논문에서 찾은<br><strong>스피큘의 가능성</strong></h2>
-  <div class="doc-slider" data-doc-slider>
+  <div class="doc-slider papers" data-doc-slider>
     <div class="doc-viewport">
       <div class="doc-track">
         <div class="doc-slide" data-title="해면 스피큘의 경피 투과" data-body="피부 자극 없이 고분자 물질(BSA)의 피부 투과 <strong>2.26배 증가</strong>">
@@ -1314,17 +1324,36 @@ section.evi-sec{background:#F2F3F5}
 <section style="background:var(--bg-soft)">
   <h2 class="section-title" style="font-size:18px">상품정보 제공고시</h2>
   <p class="section-subtitle">전자상거래법 필수 표기 (화장품)</p>
-  <div style="font-size:13px;color:var(--text-dark)">
-    <p style="padding:10px 0;border-bottom:1px solid var(--line)"><strong>상품명 / 용량</strong> · [상품명] / [용량·중량]</p>
-    <p style="padding:10px 0;border-bottom:1px solid var(--line)"><strong>사용기한</strong> · 개봉 전/후 [ ] · 제조연월 [ ]</p>
-    <p style="padding:10px 0;border-bottom:1px solid var(--line)"><strong>제조·책임판매업자 / 제조국</strong> · [ ] / [ ]</p>
-    <p style="padding:10px 0;border-bottom:1px solid var(--line)"><strong>기능성 여부</strong> · [기능성 심사·보고 여부] </p>
-    <p style="padding:10px 0;border-bottom:1px solid var(--line)"><strong>전성분</strong> · [함량 순 전체 표기]</p>
-    <p style="padding:10px 0;border-bottom:1px solid var(--line)"><strong>사용 시 주의사항</strong> · 이상반응 시 사용 중지 · 상처부위 사용 금지 · 눈 접촉 주의 · 어린이 손 닿지 않는 곳 보관</p>
-    <p style="padding:10px 0;border-bottom:1px solid var(--line)"><strong>품질보증 / 고객상담</strong> · 소비자분쟁해결기준에 따름 · 상담 [번호]</p>
-    <p style="padding:10px 0;border-bottom:1px solid var(--line)"><strong>배송</strong> · [배송비·기간·방법]</p>
-    <p style="padding:10px 0"><strong>교환·반품</strong> · [단순변심/불량 조건·반품비] · 판매자 [상호·주소·연락처]</p>
+  <div class="info-table">
+    <p class="info-row"><strong>내용물의 용량 및 중량</strong><span>1.4g × 2ea</span></p>
+    <p class="info-row"><strong>제품 주요 사양</strong><span>모든 피부용</span></p>
+    <p class="info-row"><strong>사용기한 또는 개봉 후 사용기간</strong><span>용기 별도 표기</span></p>
+    <p class="info-row"><strong>사용방법</strong><span>상세페이지 참조</span></p>
+    <p class="info-row"><strong>화장품제조업자</strong><span>(주)비엔</span></p>
+    <p class="info-row"><strong>화장품책임판매업자</strong><span>(주)아이엠어메이커</span></p>
+    <p class="info-row"><strong>맞춤형 화장품판매업자</strong><span>해당사항 없음</span></p>
+    <p class="info-row"><strong>제조국</strong><span>대한민국</span></p>
+    <p class="info-row"><strong>「화장품법」에 따라 기재·표시하여야 하는 모든 성분</strong><span>상세페이지 참조</span></p>
+    <p class="info-row"><strong>「화장품법」에 따른 기능성 화장품</strong><span>미백 · 주름개선 2중 기능성</span></p>
+    <p class="info-row"><strong>사용할 때의 주의사항</strong><span>상세페이지 참조</span></p>
+    <p class="info-row"><strong>품질보증기준</strong><span>제품 이상 시 공정거래위원회 고시 소비자분쟁해결기준에 의거 보상합니다.</span></p>
+    <p class="info-row"><strong>소비자 상담 관련 전화번호</strong><span>용기 별도 표기</span></p>
   </div>
+
+  <h3 class="block-title" style="margin-top:30px">배송 · 반품/교환 안내</h3>
+  <div class="info-table">
+    <p class="info-row"><strong>배송방법</strong><span>택배 (한진택배)</span></p>
+    <p class="info-row"><strong>배송비</strong><span>3,000원 / 50,000원 이상 구매 시 무료 / 제주·도서지역 5,000원 추가</span></p>
+    <p class="info-row"><strong>주문 이후 예상 배송기간</strong><span>대금 지급일로부터 3일 이내 발송</span></p>
+    <p class="info-row"><strong>반품배송비</strong><span>편도 4,000원 (최초 배송비 무료인 경우 8,000원 부과)</span></p>
+    <p class="info-row"><strong>교환배송비</strong><span>7,000원</span></p>
+    <p class="info-row"><strong>반품·교환 주소</strong><span>경기도 이천시 마장면 억만리로 130 1층 (주)장미물류 (17382)</span></p>
+  </div>
+  <p class="note" style="margin-top:14px">· 구매자 단순 변심: 상품 수령 후 <strong>7일 이내</strong> (반품배송비 구매자 부담)<br>
+  · 표시·광고와 상이하거나 계약 내용과 다르게 이행된 경우: 상품 수령 후 <strong>3개월 이내</strong> 또는 그 사실을 안 날부터 <strong>30일 이내</strong> (반품배송비 판매자 부담)<br>
+  · 반품 요청 기간 경과, 구매자 책임으로 상품이 멸실·훼손된 경우, 포장 훼손으로 상품 가치가 현저히 상실된 경우(화장품 등), 사용·일부 소비로 가치가 현저히 감소한 경우에는 반품·교환이 제한될 수 있습니다.<br>
+  · 반품 시 먼저 판매자와 연락해 반품 사유·택배사·배송비·반품지 주소를 협의한 뒤 상품을 발송해 주세요.<br>
+  · 소비자피해보상 및 분쟁 처리는 소비자분쟁해결기준(공정거래위원회 고시) 및 관계법령에 따릅니다.</p>
 </section>
 
 <script>
