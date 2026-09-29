@@ -216,10 +216,10 @@ section.worry{padding:54px 20px 60px;background:linear-gradient(to bottom,#fff 0
 .full-img img{display:block;width:100%;height:auto}
 /* 다음 섹션 배경색으로 자연스럽게 연결되는 하단 페이드 */
 .full-img.fade-btm,.full-img.fade-btm-gray{position:relative}
-.full-img.fade-btm-gray{background:#F2F3F5}
+.full-img.fade-btm-gray{background:linear-gradient(to bottom,#F2F3F5 0%,#F7F8F9 45%,#FFFFFF 100%)}
 .full-img.fade-btm-gray::after{content:"";position:absolute;left:0;right:0;bottom:0;height:30%;pointer-events:none;
-  background:linear-gradient(to top,#F2F3F5 0%,rgba(242,243,245,.9) 26%,
-    rgba(242,243,245,.45) 62%,rgba(242,243,245,0) 100%)}
+  background:linear-gradient(to top,#FFFFFF 0%,rgba(255,255,255,.9) 26%,
+    rgba(255,255,255,.45) 62%,rgba(255,255,255,0) 100%)}
 .full-img.fade-btm::after{content:"";position:absolute;left:0;right:0;bottom:0;height:34%;pointer-events:none;
   background:linear-gradient(to top,#fff 0%,rgba(255,255,255,.92) 22%,rgba(255,255,255,.5) 58%,rgba(255,255,255,0) 100%)}
 /* 결론 네이비 섹션 */
