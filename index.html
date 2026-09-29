@@ -329,7 +329,8 @@ section.ing-sec > *{position:relative;z-index:1}
     rgba(255,255,255,.55) 68%,rgba(255,255,255,0) 100%)}
 .ing-dot{width:100%;aspect-ratio:1/1;border-radius:50%;overflow:hidden;
   background:#E6E8EA center / cover no-repeat}
-.ing-node p{margin-top:8px;font-size:11px;font-weight:600;color:#44505F;line-height:1.35;
+.ing-node p{position:absolute;left:50%;top:calc(100% + 8px);transform:translateX(-50%);
+  font-size:11px;font-weight:600;color:#44505F;line-height:1.35;
   letter-spacing:-.03em;white-space:nowrap}
 section.sponge-sec{position:relative;color:#fff;
   background:linear-gradient(to bottom,var(--navy) 0%,rgba(18,40,77,.92) 6%,rgba(18,40,77,.55) 16%,rgba(18,40,77,0) 30%),
@@ -468,7 +469,7 @@ section.guarantee .note{color:rgba(255,255,255,.65)}
 /* REAL STORIES */
 section.stories{background:#F2F3F5;padding:0 18px 46px}
 .st-top{aspect-ratio:1/1;margin:0 -18px 18px;
-  background:url('임시 이미지/stories-top2.jpg') center 42% / cover no-repeat;
+  background:url('임시 이미지/ing-htu-bridge.jpg') center 30% / cover no-repeat;
   -webkit-mask-image:linear-gradient(to bottom,#000 60%,transparent 100%);
   mask-image:linear-gradient(to bottom,#000 60%,transparent 100%)}
 section.stories .section-title{text-align:center}
