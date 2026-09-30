@@ -520,6 +520,26 @@ section.guarantee .note{color:rgba(255,255,255,.65)}
   .abs-ring .bar{transition:none;stroke-dashoffset:var(--off)}
   .abs-bar{transition:none;transform:scaleY(1)}
 }
+/* 성분별 가로 막대 비교 */
+.abs-grp-guide{margin-top:10px;font-size:11.5px;color:var(--text-light);letter-spacing:-.02em;word-break:keep-all}
+.abs-grp-guide b{font-weight:800;color:#4A5563}
+.abs-grp{margin-top:18px;padding-top:16px;border-top:1.5px solid var(--line)}
+.abs-grp-name{font-size:15px;font-weight:800;color:#111;letter-spacing:-.03em}
+.abs-metric{margin-top:14px}
+.abs-metric + .abs-metric{margin-top:14px;padding-top:12px;border-top:1px dotted #E1E6EC}
+.mlbl{font-size:12px;font-weight:700;color:#6A7789;letter-spacing:-.02em}
+.hrow{display:flex;align-items:center;gap:8px;margin-top:7px}
+.hrow .who{flex:0 0 54px;font-size:10.5px;font-weight:600;color:#9AA6B4;text-align:right;letter-spacing:-.02em}
+.htrack{flex:1;height:16px;border-radius:8px;background:#F1F3F6;overflow:hidden}
+.hfill{display:block;height:100%;width:var(--w);border-radius:8px;transform:scaleX(0);transform-origin:left;
+  transition:transform 1.05s cubic-bezier(.22,1,.36,1)}
+.hfill.base{background:#C9CED8}
+.hfill.dia{background:linear-gradient(to right,var(--brand) 0%,#5FA8E8 100%)}
+.abs-sec.play .hfill{transform:scaleX(1)}
+.abs-metric .hrow:nth-child(3) .hfill{transition-delay:.18s}
+.hval{flex:0 0 52px;font-size:12.5px;font-weight:800;color:#111;letter-spacing:-.03em;text-align:left}
+.hval.base{color:#9AA6B4;font-weight:700}
+@media (prefers-reduced-motion:reduce){.hfill{transition:none;transform:scaleX(1)}}
 /* 상품정보 제공고시 표 */
 .info-table{margin-top:14px;border-top:1.5px solid var(--line)}
 .info-row{display:flex;gap:12px;padding:11px 2px;border-bottom:1px solid var(--line-soft);
@@ -1210,59 +1230,64 @@ section.evi-sec{background:#F2F3F5}
   <p class="abs-lead">같은 앰플도 <strong>스피큘 한 샷과 함께</strong> 쓰면<br>
     <span class="abs-chip">흡수 지표가 약 32배까지</span><br>올라갔습니다</p>
 
-  <div class="abs-ring lg">
-    <svg viewBox="0 0 120 120" aria-hidden="true">
-      <circle class="trk" cx="60" cy="60" r="52"/>
-      <circle class="bar" cx="60" cy="60" r="52" style="--off:62"/>
-    </svg>
-    <div class="abs-ring-txt">
-      <p class="lbl">콜라겐 흡수율</p>
-      <p class="num"><span class="count" data-to="290" data-suffix="%">0%</span></p>
-      <p class="sfx">향상</p>
-    </div>
-  </div>
-
-  <div class="abs-rows">
-    <div class="abs-row"><strong>콜라겐 흡수깊이</strong><i></i><b>+ <span class="count" data-to="495" data-suffix="%">0%</span></b></div>
-    <div class="abs-row"><strong>콜라겐 흡수속도</strong><i></i><b>+ <span class="count" data-to="490" data-suffix="%">0%</span></b></div>
-  </div>
-  <p class="abs-caption">일반 앰플 단독 사용 대비 다이아몬드 스피큘 5,000샷 병행 사용군의 흡수율 측정값</p>
-
-  <div class="abs-duo">
-    <div class="abs-ring sm">
-      <svg viewBox="0 0 120 120" aria-hidden="true">
-        <circle class="trk" cx="60" cy="60" r="52"/>
-        <circle class="bar" cx="60" cy="60" r="52" style="--off:124"/>
-      </svg>
-      <div class="abs-ring-txt">
-        <p class="lbl">펩타이드</p>
-        <p class="num"><span class="count" data-to="165" data-suffix="%">0%</span></p>
-        <p class="sfx">향상</p>
-      </div>
-    </div>
-    <span class="abs-duo-mid">흡수율</span>
-    <div class="abs-ring sm">
-      <svg viewBox="0 0 120 120" aria-hidden="true">
-        <circle class="trk" cx="60" cy="60" r="52"/>
-        <circle class="bar" cx="60" cy="60" r="52" style="--off:98"/>
-      </svg>
-      <div class="abs-ring-txt">
-        <p class="lbl">아미노산</p>
-        <p class="num"><span class="count" data-to="213" data-suffix="%">0%</span></p>
-        <p class="sfx">향상</p>
-      </div>
-    </div>
-  </div>
-
   <div class="abs-card">
     <h3 class="abs-card-title">성분별 흡수 데이터</h3>
     <p class="abs-card-sub">ABSORPTION BY INGREDIENT</p>
-    <table class="abs-tbl">
-      <tr><th></th><th>흡수율</th><th>흡수깊이</th><th>흡수속도</th></tr>
-      <tr><td class="nm">콜라겐</td><td>+290%</td><td>+495%</td><td>+490%</td></tr>
-      <tr><td class="nm">아미노산</td><td>+213%</td><td>+245%</td><td>+245%</td></tr>
-      <tr><td class="nm">펩타이드</td><td>+165%</td><td>+143%</td><td>+143%</td></tr>
-    </table>
+    <p class="abs-grp-guide">일반 앰플 <b>단독 사용</b> 대비 다이아몬드 스피큘 5,000샷 <b>함께 사용</b> 시 측정값</p>
+    <div class="abs-grp">
+      <h4 class="abs-grp-name">콜라겐</h4>
+      <div class="abs-metric">
+        <p class="mlbl">흡수율</p>
+        <div class="hrow"><span class="who">단독 사용</span><span class="htrack"><span class="hfill base" style="--w:15.0%"></span></span><span class="hval base">기준</span></div>
+        <div class="hrow"><span class="who">함께 사용</span><span class="htrack"><span class="hfill dia" style="--w:58.5%"></span></span><span class="hval">+290%</span></div>
+      </div>
+      <div class="abs-metric">
+        <p class="mlbl">흡수깊이</p>
+        <div class="hrow"><span class="who">단독 사용</span><span class="htrack"><span class="hfill base" style="--w:15.0%"></span></span><span class="hval base">기준</span></div>
+        <div class="hrow"><span class="who">함께 사용</span><span class="htrack"><span class="hfill dia" style="--w:89.2%"></span></span><span class="hval">+495%</span></div>
+      </div>
+      <div class="abs-metric">
+        <p class="mlbl">흡수속도</p>
+        <div class="hrow"><span class="who">단독 사용</span><span class="htrack"><span class="hfill base" style="--w:15.0%"></span></span><span class="hval base">기준</span></div>
+        <div class="hrow"><span class="who">함께 사용</span><span class="htrack"><span class="hfill dia" style="--w:88.5%"></span></span><span class="hval">+490%</span></div>
+      </div>
+    </div>
+    <div class="abs-grp">
+      <h4 class="abs-grp-name">아미노산</h4>
+      <div class="abs-metric">
+        <p class="mlbl">흡수율</p>
+        <div class="hrow"><span class="who">단독 사용</span><span class="htrack"><span class="hfill base" style="--w:15.0%"></span></span><span class="hval base">기준</span></div>
+        <div class="hrow"><span class="who">함께 사용</span><span class="htrack"><span class="hfill dia" style="--w:46.9%"></span></span><span class="hval">+213%</span></div>
+      </div>
+      <div class="abs-metric">
+        <p class="mlbl">흡수깊이</p>
+        <div class="hrow"><span class="who">단독 사용</span><span class="htrack"><span class="hfill base" style="--w:15.0%"></span></span><span class="hval base">기준</span></div>
+        <div class="hrow"><span class="who">함께 사용</span><span class="htrack"><span class="hfill dia" style="--w:51.8%"></span></span><span class="hval">+245%</span></div>
+      </div>
+      <div class="abs-metric">
+        <p class="mlbl">흡수속도</p>
+        <div class="hrow"><span class="who">단독 사용</span><span class="htrack"><span class="hfill base" style="--w:15.0%"></span></span><span class="hval base">기준</span></div>
+        <div class="hrow"><span class="who">함께 사용</span><span class="htrack"><span class="hfill dia" style="--w:51.8%"></span></span><span class="hval">+245%</span></div>
+      </div>
+    </div>
+    <div class="abs-grp">
+      <h4 class="abs-grp-name">펩타이드</h4>
+      <div class="abs-metric">
+        <p class="mlbl">흡수율</p>
+        <div class="hrow"><span class="who">단독 사용</span><span class="htrack"><span class="hfill base" style="--w:15.0%"></span></span><span class="hval base">기준</span></div>
+        <div class="hrow"><span class="who">함께 사용</span><span class="htrack"><span class="hfill dia" style="--w:39.8%"></span></span><span class="hval">+165%</span></div>
+      </div>
+      <div class="abs-metric">
+        <p class="mlbl">흡수깊이</p>
+        <div class="hrow"><span class="who">단독 사용</span><span class="htrack"><span class="hfill base" style="--w:15.0%"></span></span><span class="hval base">기준</span></div>
+        <div class="hrow"><span class="who">함께 사용</span><span class="htrack"><span class="hfill dia" style="--w:36.4%"></span></span><span class="hval">+143%</span></div>
+      </div>
+      <div class="abs-metric">
+        <p class="mlbl">흡수속도</p>
+        <div class="hrow"><span class="who">단독 사용</span><span class="htrack"><span class="hfill base" style="--w:15.0%"></span></span><span class="hval base">기준</span></div>
+        <div class="hrow"><span class="who">함께 사용</span><span class="htrack"><span class="hfill dia" style="--w:36.4%"></span></span><span class="hval">+143%</span></div>
+      </div>
+    </div>
   </div>
 
   <div class="abs-card">
