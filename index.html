@@ -163,18 +163,9 @@ section.clinical{background:#F2F3F5;padding:0 20px 46px}
 .cl-result{display:flex;flex-direction:column}
 .cl-chart{position:relative;flex:1;min-height:150px;margin-top:22px;border-bottom:3px solid #111}
 .cl-chart .grid{position:absolute;left:0;right:0;border-top:1px solid #fff}
-.cl-chart .cl-bar{position:absolute;bottom:0;width:40%;border-radius:7px 7px 2px 2px;z-index:1}
-/* 원통형 입체 — 좌우 음영 + 상단 캡 + 바닥 그림자 */
-.cl-chart .cl-bar.before{left:0;
-  background:linear-gradient(to right,#AAB1BC 0%,#CBD1DA 22%,#E2E6EC 44%,#C4CAD4 72%,#9EA6B2 100%);
-  box-shadow:0 10px 18px -8px rgba(24,40,70,.35),inset 0 -14px 20px -14px rgba(0,0,0,.25)}
-.cl-chart .cl-bar.after{right:0;
-  background:linear-gradient(to right,#22407C 0%,#3A62AE 22%,#5A86D2 44%,#33559B 72%,#1D376E 100%);
-  box-shadow:0 12px 22px -10px rgba(24,60,110,.5),inset 0 -14px 22px -14px rgba(0,0,0,.3)}
-.cl-chart .cl-bar::before{content:"";position:absolute;left:0;right:0;top:-5px;height:10px;
-  border-radius:50%;z-index:-1}
-.cl-chart .cl-bar.before::before{background:#E6E9EE;box-shadow:inset 0 -2px 3px rgba(0,0,0,.08)}
-.cl-chart .cl-bar.after::before{background:#4E7AC6;box-shadow:inset 0 -2px 3px rgba(0,0,0,.18)}
+.cl-chart .cl-bar{position:absolute;bottom:0;width:40%;border-radius:8px 8px 0 0;z-index:1}
+.cl-chart .cl-bar.before{left:0;background:linear-gradient(to bottom,#DEE2E8 0%,#C9CED8 60%,#B9BFC9 100%)}
+.cl-chart .cl-bar.after{right:0;background:linear-gradient(to bottom,#4E7AC6 0%,#33559B 62%,#27447E 100%)}
 .cl-chart .cl-bar::after{content:"";position:absolute;top:-5px;left:50%;transform:translateX(-50%);
   width:10px;height:10px;border-radius:50%;background:#fff;border:2.5px solid #8A9099;z-index:2}
 .cl-chart .cl-bar.after::after{border-color:#33559B}
