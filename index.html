@@ -164,8 +164,11 @@ section.clinical{background:#F2F3F5;padding:0 20px 46px}
 .cl-chart{position:relative;flex:1;min-height:150px;margin-top:22px;border-bottom:3px solid #111}
 .cl-chart .grid{position:absolute;left:0;right:0;border-top:1px solid #fff}
 .cl-chart .cl-bar{position:absolute;bottom:0;width:40%;border-radius:8px 8px 0 0;z-index:1}
-.cl-chart .cl-bar.before{left:0;background:linear-gradient(to bottom,#DEE2E8 0%,#C9CED8 60%,#B9BFC9 100%)}
-.cl-chart .cl-bar.after{right:0;background:linear-gradient(to bottom,#4E7AC6 0%,#33559B 62%,#27447E 100%)}
+.cl-chart .cl-bar.before{left:0;
+  background:linear-gradient(170deg,#F2F4F7 0%,#DCE1E8 28%,#C6CCD6 62%,#AEB5C1 100%)}
+.cl-chart .cl-bar.after{right:0;
+  background:linear-gradient(170deg,#8CC1E9 0%,#4E8BDC 26%,#2F62C2 58%,#1E3A7A 100%);
+  box-shadow:0 8px 18px -8px rgba(31,74,160,.55)}
 .cl-chart .cl-bar::after{content:"";position:absolute;top:-5px;left:50%;transform:translateX(-50%);
   width:10px;height:10px;border-radius:50%;background:#fff;border:2.5px solid #8A9099;z-index:2}
 .cl-chart .cl-bar.after::after{border-color:#33559B}
@@ -499,8 +502,9 @@ section.guarantee .note{color:rgba(255,255,255,.65)}
 .abs-col .val.dia{bottom:calc(100% + 8px);background:#111}
 .abs-bar{width:100%;border-radius:8px 8px 0 0;transform:scaleY(0);transform-origin:bottom;
   transition:transform 1.15s cubic-bezier(.22,1,.36,1) .15s;height:var(--h)}
-.abs-bar.base{background:#C9CED8}
-.abs-bar.dia{background:linear-gradient(to top,var(--brand) 0%,#5FA8E8 100%)}
+.abs-bar.base{background:linear-gradient(to top,#AEB5C1 0%,#CBD1DA 60%,#E0E4EA 100%)}
+.abs-bar.dia{background:linear-gradient(to top,#1E3A7A 0%,#2F62C2 34%,#4E9BE8 70%,#8CC1E9 100%);
+  box-shadow:0 10px 24px -10px rgba(31,74,160,.5)}
 .abs-chart.play .abs-bar{transform:scaleY(1)}
 .abs-x{display:flex;justify-content:center;gap:34px;margin-top:10px}
 .abs-x p{width:38%;text-align:center;font-size:12px;font-weight:700;color:#4A5563;
@@ -537,8 +541,9 @@ section.guarantee .note{color:rgba(255,255,255,.65)}
 .htrack{flex:1;height:16px;border-radius:8px;background:#F1F3F6;overflow:hidden}
 .hfill{display:block;height:100%;width:var(--w);border-radius:8px;transform:scaleX(0);transform-origin:left;
   transition:transform 1.05s cubic-bezier(.22,1,.36,1)}
-.hfill.base{background:#C9CED8}
-.hfill.dia{background:linear-gradient(to right,var(--brand) 0%,#5FA8E8 100%)}
+.hfill.base{background:linear-gradient(90deg,#B7BEC9 0%,#CFD5DE 60%,#DDE2E8 100%)}
+.hfill.dia{background:linear-gradient(90deg,#1E3A7A 0%,#2F62C2 32%,#4E9BE8 68%,#8CC1E9 100%);
+  box-shadow:0 2px 8px -2px rgba(31,74,160,.45)}
 .abs-metric.play .hfill{transform:scaleX(1)}
 .abs-metric .hrow:nth-child(3) .hfill{transition-delay:.18s}
 .hval{flex:0 0 52px;font-size:12.5px;font-weight:800;color:#111;letter-spacing:-.03em;text-align:left}
