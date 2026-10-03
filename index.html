@@ -649,6 +649,10 @@ section.evi-sec{background:#F2F3F5}
   .anim-conclusion{background-image:image-set(url('임시 이미지/conclusion.webp') type('image/webp'),url('임시 이미지/conclusion.gif') type('image/gif'))}
 }
 .spx-how{margin-top:12px;padding-top:12px;border-top:1px solid rgba(255,255,255,.18)}
+/* 상단 부스터 요약 섹션 */
+.abs-intro{padding:60px 20px 56px;background:linear-gradient(to bottom,#FFFFFF 0%,#F7F9FB 58%,#FFFFFF 100%)}
+.abs-intro .abs-flow{margin-top:30px}
+.abs-intro .abs-caption{margin-top:14px;text-align:center}
 /* 흐르는 띠 배너 */
 .marquee{overflow:hidden;background:var(--navy);padding:14px 0}
 .marquee-track{display:flex;align-items:center;width:max-content;animation:marquee-run 26s linear infinite}
@@ -830,6 +834,50 @@ section.evi-sec{background:#F2F3F5}
     <p class="sub-eyebrow"><strong>청정바다</strong>의 해면 동물이 남긴<br><strong>워터 리커버리</strong> 스피큘 부스터</p>
     <h2 class="sub-title">DIAMOND SPICULE<br>5,000 SHOT</h2>
   </div>
+</div>
+
+<!-- [1c] 부스터 요약 — 기존 앰플 흡수율 32배 -->
+<div class="abs-sec abs-intro">
+  <p class="abs-eyebrow">BOOSTER · SYNERGY</p>
+  <h2 class="section-title">쓰던 앰플은 그대로,<br><strong>흡수율만 32배로</strong></h2>
+  <p class="abs-lead">스피큘 부스터를 먼저 한 샷.<br>
+    이어서 바르는 앰플의 유효성분이<br><strong class="abs-hl">약 32배</strong>까지 더 흡수됩니다</p>
+  <div class="abs-flow" aria-hidden="true">
+    <div class="abs-flow-step">
+      <span class="abs-flow-img" style="background-image:url('임시 이미지/flow-spicule.webp')"></span>
+      <span class="abs-flow-cap">STEP 1<b>스피큘 부스터</b></span>
+    </div>
+    <span class="abs-flow-arrow">+</span>
+    <div class="abs-flow-step">
+      <span class="abs-flow-img" style="background-image:url('임시 이미지/flow-ampoule.webp')"></span>
+      <span class="abs-flow-cap">STEP 2<b>쓰던 앰플</b></span>
+    </div>
+  </div>
+
+  <div class="abs-card">
+    <div class="abs-idx-head">
+      <div>
+        <h3 class="abs-card-title">종합 피부 흡수 지표</h3>
+        <p class="abs-card-sub">TOTAL SKIN ABSORPTION INDEX</p>
+      </div>
+      <p class="abs-idx-x">약 <b>×<span class="acount" data-to="32" data-duration="1200">0</span></b> 향상</p>
+    </div>
+    <div class="abs-chart">
+      <div class="abs-col">
+        <span class="val base"><span class="acount" data-to="15" data-duration="1200">0</span></span>
+        <div class="abs-bar base" style="--h:9%"></div>
+      </div>
+      <div class="abs-col">
+        <span class="val dia"><span class="acount" data-to="491" data-duration="1400">0</span></span>
+        <div class="abs-bar dia" style="--h:100%"></div>
+      </div>
+    </div>
+    <div class="abs-x">
+      <p>일반 앰플<br>단독 사용</p>
+      <p>스피큘 부스터<br>5,000샷 병행</p>
+    </div>
+  </div>
+  <p class="abs-caption">[화장품 흡수량·흡수 깊이·흡수 속도 개선 인체적용시험] 피부임상연구센터 · 40-50대 성인 22명 · 개인차가 있을 수 있습니다</p>
 </div>
 
 <!-- [2] PROOF — 임상 바차트 -->
@@ -2105,8 +2153,8 @@ section.evi-sec{background:#F2F3F5}
 
 /* ===== 흡수율 섹션 — 그래프·수치 동시 재생 ===== */
 (function () {
-  var sec = document.querySelector('.abs-sec');
-  if (!sec) return;
+  var secs = document.querySelectorAll('.abs-sec');
+  if (!secs.length) return;
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   function runCount(el) {
@@ -2133,7 +2181,11 @@ section.evi-sec{background:#F2F3F5}
     });
   }
 
-  var targets = Array.prototype.slice.call(sec.querySelectorAll('.abs-flow, .abs-metric, .abs-chart, .abs-idx-head'));
+  var targets = [];
+  Array.prototype.forEach.call(secs, function (sc) {
+    targets = targets.concat(Array.prototype.slice.call(
+      sc.querySelectorAll('.abs-flow, .abs-metric, .abs-chart, .abs-idx-head')));
+  });
   if (!('IntersectionObserver' in window)) { targets.forEach(play); return; }
   var io = new IntersectionObserver(function (entries) {
     entries.forEach(function (e) {
