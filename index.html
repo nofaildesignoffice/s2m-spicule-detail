@@ -129,7 +129,8 @@ section.cause-sec{background:#fff}
 .cause-no{display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:50%;
   border:1.3px solid #111;font-size:17px;font-weight:700;color:#111}
 .cause-title{margin-top:20px;font-size:23px;font-weight:800;color:#111;line-height:1.45;letter-spacing:-.03em}
-.cause-img{position:relative;aspect-ratio:426/240;margin-top:22px;background:#DEDEDE center / cover no-repeat}
+.cause-img{position:relative;aspect-ratio:426/240;margin-top:22px;overflow:hidden;background:#DEDEDE}
+.cause-img video,.cc-img video{display:block;width:100%;height:100%;object-fit:cover}
 .cause-body{margin-top:18px;text-align:left;font-size:15.5px;color:#222;line-height:1.7;letter-spacing:-.02em}
 /* 히어로 하단 이어지는 제품 섹션 */
 .sub-inner{position:relative;min-height:700px;text-align:center;padding:78px 20px 38px;color:#fff;
@@ -344,7 +345,7 @@ section.sponge-sec{position:relative;color:#fff;
   background:linear-gradient(to bottom,var(--navy) 0%,rgba(18,40,77,.92) 6%,rgba(18,40,77,.55) 16%,rgba(18,40,77,0) 30%),
     linear-gradient(to top,rgba(18,40,77,.8) 0%,rgba(18,40,77,0) 50%),
     linear-gradient(rgba(8,40,60,.35),rgba(8,40,60,.55)),
-    url('임시 이미지/sea-bg.png') center / cover no-repeat}
+    url('임시 이미지/sea-bg.jpg') center / cover no-repeat}
 section.sponge-sec .section-title{color:#fff;text-shadow:0 2px 14px rgba(0,20,35,.45)}
 .sg-lead{display:block;font-size:17px;font-weight:600;letter-spacing:-.02em;white-space:nowrap}
 .sg-big{display:block;margin-top:8px;font-size:38px;font-weight:800;letter-spacing:.04em;line-height:1.2}
@@ -634,6 +635,9 @@ section.evi-sec{background:#F2F3F5}
 @media (prefers-reduced-motion:reduce){
   .doc-slide,.doc-cap,.doc-dots b{transition:none}
 }
+/* 화면 밖 애니메이션 정지 */
+.anim-off .ing-waves span,.anim-off .ing-waves::before,.anim-off .ing-orbit,
+.anim-off .ing-node-in,.anim-off .marquee-track,.anim-off .cmp-glow{animation-play-state:paused}
 /* 흐르는 띠 배너 */
 .marquee{overflow:hidden;background:var(--navy);padding:14px 0}
 .marquee-track{display:flex;align-items:center;width:max-content;animation:marquee-run 26s linear infinite}
@@ -910,19 +914,19 @@ section.evi-sec{background:#F2F3F5}
     <h2 class="rv-title">리뷰가 말해주는 진짜<br><strong>#워터피플_부스터</strong></h2>
   </div>
   <div class="rv">
-    <div class="rv-img" style="background-image:url('임시 이미지/review-1.png')"></div>
+    <div class="rv-img" style="background-image:url('임시 이미지/review-1.jpg')"></div>
     <div class="rv-stars">★★★★★</div>
     <div class="rv-who">Verified Buyer · Sunday to Monday Official</div>
     <p class="rv-text">서핑 다녀온 날 저녁에 한 샷. 다음 날 아침, 당기던 느낌이 확실히 덜해요</p>
   </div>
   <div class="rv">
-    <div class="rv-img" style="background-image:url('임시 이미지/review-2.png')"></div>
+    <div class="rv-img" style="background-image:url('임시 이미지/review-2.jpg')"></div>
     <div class="rv-stars">★★★★★</div>
     <div class="rv-who">Mia Johnson · Verified Buyer</div>
     <p class="rv-text">수영장 다녀와 염소 물에 절은 날에도, 주 1회만 쓰면 결이 정돈돼요</p>
   </div>
   <div class="rv">
-    <div class="rv-img" style="background-image:url('임시 이미지/review-3.png')"></div>
+    <div class="rv-img" style="background-image:url('임시 이미지/review-3.jpg')"></div>
     <div class="rv-stars">★★★★★</div>
     <div class="rv-who">Verified Buyer · Sunday to Monday Official</div>
     <p class="rv-text">바다에서 하루 종일 있어도 피부가 버텨줘요. 다음 날 광채가 살아나는 느낌</p>
@@ -937,7 +941,7 @@ section.evi-sec{background:#F2F3F5}
 </section>
 
 <!-- [7d] 리뷰 하단 이미지 -->
-<div class="full-img"><img src="임시 이미지/reviews-after2.jpg" alt=""></div>
+<div class="full-img"><img loading="lazy" decoding="async" src="임시 이미지/reviews-after2.jpg" alt=""></div>
 
 <!-- [3] PROBLEM — 챗버블 -->
 <!-- [3] PROBLEM — 피부 고민 -->
@@ -963,19 +967,19 @@ section.evi-sec{background:#F2F3F5}
     <div class="cause-card">
       <span class="cause-no">1</span>
       <h3 class="cause-title">오래 물에 젖으면<br>최대 80%의 수분이 빠져나가요</h3>
-      <div class="cause-img" style="background-image:url('임시 이미지/cause-1.gif')"></div>
+      <div class="cause-img"><video src="임시 이미지/cause-1.mp4" autoplay muted loop playsinline preload="metadata"></video></div>
       <p class="cause-body">2시간 수영 직후, 피부에서 빠져나가는 수분량이 부위별로 최대 80%까지 늘어요. 물 밖에선 오히려 더 빨리 건조해져 당기고 푸석해집니다.</p>
     </div>
     <div class="cause-card">
       <span class="cause-no">2</span>
       <h3 class="cause-title">강한 직접 자외선에<br>결과 톤이 거칠어져요</h3>
-      <div class="cause-img" style="background-image:url('임시 이미지/cause-2.gif')"></div>
+      <div class="cause-img"><video src="임시 이미지/cause-2.mp4" autoplay muted loop playsinline preload="metadata"></video></div>
       <p class="cause-body">눈에 보이는 피부 노화의 약 80%는 자외선(광노화) 때문이에요. 야외 물 위에서 장시간 쬐는 강한 직접 자외선이 결과 톤을 거칠게 만듭니다.</p>
     </div>
     <div class="cause-card">
       <span class="cause-no">3</span>
       <h3 class="cause-title">수영장 염소·잦은 세정으로<br>피부 장벽이 약해져요</h3>
-      <div class="cause-img" style="background-image:url('임시 이미지/cause-3.gif')"></div>
+      <div class="cause-img"><video src="임시 이미지/cause-3.mp4" autoplay muted loop playsinline preload="metadata"></video></div>
       <p class="cause-body">잔류 염소가 0.5mg/L만 넘어도 각질층이 수분을 붙잡는 힘이 뚜렷하게 떨어져요. 잦고 뜨거운 세정까지 겹치면 장벽은 더 약해집니다.</p>
     </div>
     <p class="note">※ 일반 피부과학 논문 결과이며 특정 제품의 효능이 아닙니다. TEWL 증가는 '수분이 빠져나가는 양의 증가'를 의미하며, 노출 시간·피부 타입에 따라 차이가 있습니다. 소금기 자체가 피부장벽을 파괴한다는 의미는 아닙니다. (출처: 수영선수 피부장벽 연구, 광노화 연구(Flament 등), 잔류염소·해변 자외선 연구)</p>
@@ -985,14 +989,14 @@ section.evi-sec{background:#F2F3F5}
 <!-- [5c] 결론 — 네이비 -->
 <section class="conclusion">
   <p class="cc-lead">이렇게 <strong>두껍고 거칠어진 각질층</strong>은<br>좋은 성분을 피부속에 <strong>전달되지 못하게</strong> 합니다.</p>
-  <div class="cc-img" style="background-image:url('임시 이미지/conclusion.gif')"></div>
+  <div class="cc-img"><video src="임시 이미지/conclusion.mp4" autoplay muted loop playsinline preload="metadata"></video></div>
   <p class="cc-next">그렇기 때문에 좋은 성분을 바르기 전,<br><strong>거친 각질층을 먼저 정돈하는 단계</strong>가 필요합니다.</p>
 </section>
 
 <!-- [6-1] 핵심 원료 해면 스피큘 -->
 <section class="sponge-sec">
   <h2 class="section-title"><span class="sg-lead">각질을 정돈하는 한 가지, 해면 스피큘</span><span class="sg-big">SPICULE-X</span></h2>
-  <div class="sponge-img"><img class="sponge-zoom" src="임시 이미지/sponge-zoom.png" alt="스피큘 확대"></div>
+  <div class="sponge-img"><img class="sponge-zoom" loading="lazy" decoding="async" src="임시 이미지/sponge-zoom.png" alt="스피큘 확대"></div>
   <div class="spx-box">
     <p class="spx-label">스피큘 정제 기술 특허</p>
     <p class="spx-name">SPICULE-X</p>
@@ -1047,7 +1051,7 @@ section.evi-sec{background:#F2F3F5}
     <div class="sp-figure"></div>
     <svg class="sp-lines" aria-hidden="true"></svg>
       <div class="sp-item y right">
-        <div class="sp-thumb" style="background-image:url('임시 이미지/sp-lipid.png')"></div>
+        <div class="sp-thumb" style="background-image:url('임시 이미지/sp-lipid.jpg')"></div>
         <p class="sp-label">1st Coating</p>
         <h4 class="sp-name">Lipid Layer</h4>
         
@@ -1061,7 +1065,7 @@ section.evi-sec{background:#F2F3F5}
         <p class="sp-body">콜라겐·펩타이드·아미노산 등 핵심 성분을 정렬해 <em>코팅. 흡수 효율을 높이는</em> 데 기여하며 <em>피부 진정에도 도움</em>을 줍니다.</p>
       </div>
       <div class="sp-item v right">
-        <div class="sp-thumb" style="background-image:url('임시 이미지/sp-diamond.png')"></div>
+        <div class="sp-thumb" style="background-image:url('임시 이미지/sp-diamond.jpg')"></div>
         <p class="sp-label">3rd Coating</p>
         <h4 class="sp-name">Diamond Powder</h4>
         <p class="sp-ppm">성분 함량 <b>25PPM</b> <span>전성분 표 기준</span></p>
@@ -1075,7 +1079,7 @@ section.evi-sec{background:#F2F3F5}
         <p class="sp-body">스피큘 표면에는 수많은 10–40nm 크기의 미세한 구멍이 분포해 있습니다. 이 구멍을 통해 <em>코팅된 활성 성분이 단계적으로 방출</em>됩니다.</p>
       </div>
       <div class="sp-item n right">
-        <div class="sp-thumb" style="background-image:url('임시 이미지/sp-canal.png')"><span class="sp-cap">0.5–1.5 μM</span></div>
+        <div class="sp-thumb" style="background-image:url('임시 이미지/sp-canal.jpg')"><span class="sp-cap">0.5–1.5 μM</span></div>
         <p class="sp-label">Interior</p>
         <h4 class="sp-name">Micro Canal</h4>
         
@@ -1083,7 +1087,7 @@ section.evi-sec{background:#F2F3F5}
       </div>
   </div>
   <div class="sp-tech">
-    <div class="sp-thumb sp-tech-img" style="background-image:url('임시 이미지/sp-infusion.png')"></div>
+    <div class="sp-thumb sp-tech-img" style="background-image:url('임시 이미지/sp-infusion.jpg')"></div>
     <div class="sp-tech-txt">
       <p class="sp-label">Sunday 2 Monday, Technology</p>
       <h4 class="sp-name">초고압 인퓨전</h4>
@@ -1145,30 +1149,30 @@ section.evi-sec{background:#F2F3F5}
       </div>
       <div class="ing-node" style="left:72.8%;top:22.9%">
         <div class="ing-node-in">
-          <div class="ing-dot" style="background-image:url('임시 이미지/ing-amino.png')"></div>
+          <div class="ing-dot" style="background-image:url('임시 이미지/ing-amino.jpg')"></div>
           <p>15-아미노산<br>콤플렉스</p>
         </div>
       </div>
       <div class="ing-node" style="left:86.8%;top:53.4%">
         <div class="ing-node-in">
-          <div class="ing-dot" style="background-image:url('임시 이미지/ing-func.png')"></div>
+          <div class="ing-dot" style="background-image:url('임시 이미지/ing-func.jpg')"></div>
           <p>검증된<br>기능성 성분 2종</p>
         </div>
       </div>
       <div class="ing-node" style="left:50.0%;top:72.3%">
         <div class="ing-node-in">
-          <div class="ing-dot" style="background-image:url('임시 이미지/ing-exosome.png')"></div>
+          <div class="ing-dot" style="background-image:url('임시 이미지/ing-exosome.jpg')"></div>
           <p>천연 식물<br>추출물 엑소좀</p>
         </div>
       </div>
       <div class="ing-node" style="left:13.2%;top:53.4%">
         <div class="ing-node-in">
-          <div class="ing-dot" style="background-image:url('임시 이미지/ing-panthenol.png')"></div>
+          <div class="ing-dot" style="background-image:url('임시 이미지/ing-panthenol.jpg')"></div>
           <p>보습·진정<br>판테놀</p>
         </div>
       </div>
     </div>
-    <img class="ing-product" src="임시 이미지/ing-product2.png" alt="다이아몬드 스피큘 5,000샷">
+    <img class="ing-product" loading="lazy" decoding="async" src="임시 이미지/ing-product2.png" alt="다이아몬드 스피큘 5,000샷">
     <div class="ing-top-fade" aria-hidden="true"></div>
   </div>
   <div class="ing-cards">
@@ -1185,7 +1189,7 @@ section.evi-sec{background:#F2F3F5}
     </div>
     <div class="ing-item">
       <div class="ing-head">
-        <div class="ing-img" style="background-image:url('임시 이미지/ing-amino.png')"></div>
+        <div class="ing-img" style="background-image:url('임시 이미지/ing-amino.jpg')"></div>
         <div class="ing-txt">
           <p class="ing-eyebrow">AMINO ACIDS</p>
           <h3>15-아미노산 콤플렉스</h3>
@@ -1196,7 +1200,7 @@ section.evi-sec{background:#F2F3F5}
     </div>
     <div class="ing-item">
       <div class="ing-head">
-        <div class="ing-img" style="background-image:url('임시 이미지/ing-func.png')"></div>
+        <div class="ing-img" style="background-image:url('임시 이미지/ing-func.jpg')"></div>
         <div class="ing-txt">
           <p class="ing-eyebrow">FUNCTIONAL</p>
           <h3>검증된 기능성 성분 2종</h3>
@@ -1207,7 +1211,7 @@ section.evi-sec{background:#F2F3F5}
     </div>
     <div class="ing-item">
       <div class="ing-head">
-        <div class="ing-img" style="background-image:url('임시 이미지/ing-exosome.png')"></div>
+        <div class="ing-img" style="background-image:url('임시 이미지/ing-exosome.jpg')"></div>
         <div class="ing-txt">
           <p class="ing-eyebrow">BOTANICALS</p>
           <h3>천연 식물 추출물 엑소좀</h3>
@@ -1218,7 +1222,7 @@ section.evi-sec{background:#F2F3F5}
     </div>
     <div class="ing-item">
       <div class="ing-head">
-        <div class="ing-img" style="background-image:url('임시 이미지/ing-panthenol.png')"></div>
+        <div class="ing-img" style="background-image:url('임시 이미지/ing-panthenol.jpg')"></div>
         <div class="ing-txt">
           <p class="ing-eyebrow">PANTHENOL</p>
           <h3>보습·진정의 기본기</h3>
@@ -1344,14 +1348,14 @@ section.evi-sec{background:#F2F3F5}
 
 <!-- [6-4] 사용법 3STEP -->
 <!-- 성분 → 사용법 사이 이미지 -->
-<div class="full-img fade-btm"><img src="임시 이미지/ing-htu-bridge2.jpg" alt=""></div>
+<div class="full-img fade-btm"><img loading="lazy" decoding="async" src="임시 이미지/ing-htu-bridge2.jpg" alt=""></div>
 
 <section class="htu-sec">
   <h2 class="section-title">주 1회, ONE SHOT<br><strong>이렇게, 사용하세요</strong></h2>
   <p class="section-subtitle">사용 주기는 1주일에 1회 시작해서<br>피부 상태와 필요에 따라 횟수를 늘려주세요.</p>
   <div class="htu-card">
     <div class="htu-step">
-      <div class="htu-img" style="background-image:url('임시 이미지/htu-1.png')"></div>
+      <div class="htu-img" style="background-image:url('임시 이미지/htu-1.jpg')"></div>
       <div class="htu-txt">
         <span class="htu-badge">STEP 1</span>
         <h4 class="htu-title">세안 후 스킨·로션 단계</h4>
@@ -1359,7 +1363,7 @@ section.evi-sec{background:#F2F3F5}
       </div>
     </div>
     <div class="htu-step">
-      <div class="htu-img" style="background-image:url('임시 이미지/htu-2.png')"></div>
+      <div class="htu-img" style="background-image:url('임시 이미지/htu-2.jpg')"></div>
       <div class="htu-txt">
         <span class="htu-badge">STEP 2</span>
         <h4 class="htu-title">앰플 1개 전량 도포</h4>
@@ -1367,7 +1371,7 @@ section.evi-sec{background:#F2F3F5}
       </div>
     </div>
     <div class="htu-step">
-      <div class="htu-img" style="background-image:url('임시 이미지/htu-3.png')"></div>
+      <div class="htu-img" style="background-image:url('임시 이미지/htu-3.jpg')"></div>
       <div class="htu-txt">
         <span class="htu-badge">STEP 3</span>
         <h4 class="htu-title">꾹꾹 눌러 흡수</h4>
@@ -1384,7 +1388,7 @@ section.evi-sec{background:#F2F3F5}
 </section>
 
 <!-- EVIDENCE 상단 풀이미지 -->
-<div class="full-img fade-btm-gray"><img src="임시 이미지/evi-top2.png" alt=""></div>
+<div class="full-img fade-btm-gray"><img loading="lazy" decoding="async" src="임시 이미지/evi-top2.png" alt=""></div>
 
 <!-- [7] EVIDENCE — SCI + 인증 -->
 <section class="evi-sec">
@@ -1434,19 +1438,19 @@ section.evi-sec{background:#F2F3F5}
   <h2 class="section-title">달라진 하루</h2>
   <p class="section-subtitle">물을 포기하지 않는 사람들의 사용 전·후</p>
   <div class="rv">
-    <div class="rv-img" style="background-image:url('임시 이미지/story-tone.png')"></div>
+    <div class="rv-img" style="background-image:url('임시 이미지/story-tone.jpg')"></div>
     <div class="rv-stars">★★★★★</div>
     <div class="rv-who">서퍼 · 실제 후기 자리</div>
     <p class="rv-text">주말 서핑, 주중에 한 샷. 다음 날 결이 정돈돼서 화장이 확실히 잘 먹고, 톤도 한결 맑고 윤기 있어 보여요</p>
   </div>
   <div class="rv">
-    <div class="rv-img" style="background-image:url('임시 이미지/story-eye.png')"></div>
+    <div class="rv-img" style="background-image:url('임시 이미지/story-eye.jpg')"></div>
     <div class="rv-stars">★★★★★</div>
     <div class="rv-who">프리다이빙 수강생 · 실제 후기 자리</div>
     <p class="rv-text">눈가 잔주름이 제일 신경 쓰였는데, 자글자글하던 결이 얕아지고 눈밑 그늘까지 옅어졌어요</p>
   </div>
   <div class="rv">
-    <div class="rv-img" style="background-image:url('임시 이미지/story-smile.png')"></div>
+    <div class="rv-img" style="background-image:url('임시 이미지/story-smile.jpg')"></div>
     <div class="rv-stars">★★★★★</div>
     <div class="rv-who">일반 사용자 · 실제 후기 자리</div>
     <p class="rv-text">팔자 라인이 깊어 보여 고민이었어요. 라인이 부드러워지니 인상이 훨씬 편해 보인다는 말을 들었어요</p>
@@ -2127,6 +2131,28 @@ section.evi-sec{background:#F2F3F5}
     });
   }, { threshold: 0.4, rootMargin: '0px 0px -8% 0px' });
   targets.forEach(function (t) { io.observe(t); });
+})();
+/* ===== 화면 밖 애니메이션·영상 일시정지 (모바일 성능) ===== */
+(function () {
+  if (!('IntersectionObserver' in window)) return;
+
+  var animHosts = document.querySelectorAll('.ing-stage, .marquee, .cmp-wrap, .abs-sec');
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      e.target.classList.toggle('anim-off', !e.isIntersecting);
+    });
+  }, { rootMargin: '150px 0px' });
+  Array.prototype.forEach.call(animHosts, function (el) { io.observe(el); });
+
+  var vids = document.querySelectorAll('video');
+  var vio = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      var v = e.target;
+      if (e.isIntersecting) { var pr = v.play(); if (pr && pr.catch) pr.catch(function () {}); }
+      else if (!v.paused) { v.pause(); }
+    });
+  }, { rootMargin: '200px 0px' });
+  Array.prototype.forEach.call(vids, function (v) { vio.observe(v); });
 })();
 </script>
 
