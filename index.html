@@ -512,6 +512,14 @@ section.guarantee .note{color:rgba(255,255,255,.65)}
 .abs-boost-lead{font-size:15.5px;color:#333}
 .abs-boost-lead strong{font-weight:800;color:var(--brand-deep)}
 .abs-flow{margin-top:26px;display:flex;align-items:flex-start;justify-content:center;gap:14px}
+.abs-flow .abs-flow-step,.abs-flow .abs-flow-arrow{opacity:0;transform:translateY(14px);
+  transition:opacity .7s ease,transform .7s cubic-bezier(.22,1,.36,1)}
+.abs-flow.play .abs-flow-step,.abs-flow.play .abs-flow-arrow{opacity:1;transform:none}
+.abs-flow.play .abs-flow-arrow{transition-delay:.42s}
+.abs-flow.play .abs-flow-step:last-of-type{transition-delay:.62s}
+@media (prefers-reduced-motion:reduce){
+  .abs-flow .abs-flow-step,.abs-flow .abs-flow-arrow{opacity:1;transform:none;transition:none}
+}
 .abs-flow-step{display:flex;flex-direction:column;align-items:center;gap:10px;width:38%}
 .abs-flow-img{width:100%;aspect-ratio:1/1;border-radius:50%;background:#EDEFF1 center / cover no-repeat;
   box-shadow:0 8px 20px rgba(24,60,110,.14)}
@@ -1772,13 +1780,15 @@ section.evi-sec{background:#F2F3F5}
   var TXT_SEL = 'section h1, section h2, section h3, section h4, section p, section li,'
               + ' .point-wrap, .test-tag, .cause-no, .copy-band p, .wr-title, .cl-title, .cl-sub,'
               + ' .cl-name, .cl-delta, .cl-x, .fd-title, .fd-body, .fd-sign, .cc-lead, .cc-next, .sp-tech-txt,'
-              + ' .sub-eyebrow, .sub-title, .fb-lead, .fb-title, .fb-sub';
+              + ' .sub-eyebrow, .sub-title, .fb-lead, .fb-title, .fb-sub,'
+              + ' .abs-sec h2, .abs-sec h3, .abs-sec h4, .abs-sec p';
 
   function tag(sel, cls) {
     Array.prototype.forEach.call(document.querySelectorAll(sel), function (el) {
       if (inSkip(el)) return;
       if (el.closest('.sp-item') || el.closest('.ing-node')) return;                 // 자체 애니메이션 사용
       if (el.closest('.doc-slider')) return;                                        // 슬라이더는 자체 제어
+      if (el.closest('.abs-flow')) return;                                          // 부스터 플로우는 자체 제어
       if (el.closest('.fb-stage') && !el.closest('.fb-head')) return;               // 얼굴 콜아웃은 고정
       if (el.classList.contains('rv-up') || el.classList.contains('rv-fade')) return;
       if (el.parentElement && el.parentElement.closest('.rv-up, .rv-fade')) return;  // 상위가 이미 움직임
@@ -2107,7 +2117,7 @@ section.evi-sec{background:#F2F3F5}
     });
   }
 
-  var targets = Array.prototype.slice.call(sec.querySelectorAll('.abs-metric, .abs-chart, .abs-idx-head'));
+  var targets = Array.prototype.slice.call(sec.querySelectorAll('.abs-flow, .abs-metric, .abs-chart, .abs-idx-head'));
   if (!('IntersectionObserver' in window)) { targets.forEach(play); return; }
   var io = new IntersectionObserver(function (entries) {
     entries.forEach(function (e) {
