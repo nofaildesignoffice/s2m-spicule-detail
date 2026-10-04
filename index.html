@@ -662,6 +662,17 @@ section.evi-sec{background:#F2F3F5}
 .step-sec .note{color:rgba(255,255,255,.5)}
 .step-sec .cause-img{background-color:rgba(255,255,255,.08)}
 .step-sec .cause-card:last-of-type{margin-bottom:28px}
+/* 작동 원리 4단계 — 애니메이션 이미지 */
+.anim-step-1{background-image:url('임시 이미지/step-1.gif')}
+.anim-step-2{background-image:url('임시 이미지/step-2.gif')}
+.anim-step-3{background-image:url('임시 이미지/step-3.gif')}
+.anim-step-4{background-image:url('임시 이미지/step-4.gif')}
+@supports (background-image:image-set(url('a.webp') type('image/webp'))){
+  .anim-step-1{background-image:image-set(url('임시 이미지/step-1.webp') type('image/webp'),url('임시 이미지/step-1.gif') type('image/gif'))}
+  .anim-step-2{background-image:image-set(url('임시 이미지/step-2.webp') type('image/webp'),url('임시 이미지/step-2.gif') type('image/gif'))}
+  .anim-step-3{background-image:image-set(url('임시 이미지/step-3.webp') type('image/webp'),url('임시 이미지/step-3.gif') type('image/gif'))}
+  .anim-step-4{background-image:image-set(url('임시 이미지/step-4.webp') type('image/webp'),url('임시 이미지/step-4.gif') type('image/gif'))}
+}
 /* 흐르는 띠 배너 */
 .marquee{overflow:hidden;background:var(--navy);padding:14px 0}
 .marquee-track{display:flex;align-items:center;width:max-content;animation:marquee-run 26s linear infinite}
@@ -1063,25 +1074,25 @@ section.evi-sec{background:#F2F3F5}
     <div class="cause-card">
       <span class="cause-no">1</span>
       <h3 class="cause-title">다이아몬드 코팅 스피큘이<br>피부 속으로 들어갑니다</h3>
-      <div class="cause-img" style="background-image:url('임시 이미지/step-1.webp')"></div>
+      <div class="cause-img anim-step-1"></div>
       <p class="cause-body">바늘 모양의 미세 구조가 피부 표면을 지나 자리를 잡으며, 성분이 지나갈 통로를 만듭니다. 겉에 머무르지 않고 안쪽에서 시작되는 단계입니다.</p>
     </div>
     <div class="cause-card">
       <span class="cause-no">2</span>
       <h3 class="cause-title">72시간 동안 콜라겐과<br>활성 성분을 전달합니다</h3>
-      <div class="cause-img" style="background-image:url('임시 이미지/step-2.webp')"></div>
+      <div class="cause-img anim-step-2"></div>
       <p class="cause-body">스피큘 내부 채널에 담긴 콜라겐·아미노산·펩타이드가 사흘에 걸쳐 피부 전반으로 퍼져 나갑니다. 한 번의 사용이 3일 동안 이어집니다.</p>
     </div>
     <div class="cause-card">
       <span class="cause-no">3</span>
       <h3 class="cause-title">피부 속부터 탄력과<br>광채가 올라옵니다</h3>
-      <div class="cause-img" style="background-image:url('임시 이미지/step-3.webp')"></div>
+      <div class="cause-img anim-step-3"></div>
       <p class="cause-body">전달된 성분이 자리를 잡으면서, 겉에 바르는 것만으로는 닿지 않던 깊이에서 탄력과 윤기가 채워집니다.</p>
     </div>
     <div class="cause-card">
       <span class="cause-no">4</span>
       <h3 class="cause-title">피부가 스피큘을 밀어내며<br>한 사이클이 끝납니다</h3>
-      <div class="cause-img" style="background-image:url('임시 이미지/step-4.webp')"></div>
+      <div class="cause-img anim-step-4"></div>
       <p class="cause-body">역할을 마친 스피큘은 피부가 자연스럽게 밀어냅니다. 남기지 않고 끝나는, 주 1회 딥 스킨케어 한 사이클입니다.</p>
     </div>
     <p class="note">※ 원료의 작용 과정을 이해를 돕기 위해 시각화한 이미지이며, 실제 피부 조직·배율과는 차이가 있습니다.</p>
